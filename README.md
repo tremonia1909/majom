@@ -8,7 +8,7 @@ Timeline :
 
 10.01.14 - Malte - Gems Devise,Rolify eingebaut
 
-
+11.01.14 - Myles - Bootstrap, high_voltage (Siehe gesonderte Anleitung) eingebaut
 
 
 
