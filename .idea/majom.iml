@@ -10,14 +10,39 @@
     </facet>
   </component>
   <component name="ModuleRunConfigurationManager">
-    <configuration default="false" name="Development: majom" type="RailsRunConfigurationType" factoryName="Rails">
-      <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
+    <configuration default="false" name="test: majom" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="majom" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="RAILS_ENV" value="test" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="test" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE=":test_unit " />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="spec: majom" type="RakeRunConfigurationType" factoryName="Rake">
+      <module name="majom" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <envs />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
       <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
@@ -27,15 +52,12 @@
         </COVERAGE_PATTERN>
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
-      <RunnerSettings RunnerId="RubyRunner" />
-      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="spec" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE=":rspec " />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
       <method />
     </configuration>
     <configuration default="false" name="Production: majom" type="RailsRunConfigurationType" factoryName="Rails">
@@ -64,13 +86,14 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
       <method />
     </configuration>
-    <configuration default="false" name="spec: majom" type="RakeRunConfigurationType" factoryName="Rake">
+    <configuration default="false" name="Development: majom" type="RailsRunConfigurationType" factoryName="Rails">
+      <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
       <module name="majom" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <envs />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
       <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
@@ -80,38 +103,15 @@
         </COVERAGE_PATTERN>
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="spec" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE=":rspec " />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="test: majom" type="RakeRunConfigurationType" factoryName="Rake">
-      <module name="majom" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs>
-        <env name="RAILS_ENV" value="test" />
-      </envs>
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="test" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE=":test_unit " />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
       <method />
     </configuration>
   </component>
@@ -134,29 +134,35 @@
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v4.0.1, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.3.0, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.8.0, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="commonjs (v0.2.7, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="devise (v3.4.1, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.2.2, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="high_voltage (v2.2.1, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hike (v1.2.3, rbenv: 2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.11, rbenv: 2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.2.5, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="i18n (v0.7.0, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.2.6, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v3.1.2, rbenv: 2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="json (v1.8.1, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="json (v1.8.2, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="less (v2.6.0, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="less-rails (v2.6.0, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="libv8 (v3.16.14.7, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.6.3, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v2.4.3, rbenv: 2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="minitest (v5.5.0, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="minitest (v5.5.1, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.10.1, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.5.0, rbenv: 2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="pg (v0.17.1, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pg (v0.18.1, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v1.5.2, rbenv: 2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.6.2, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.6.3, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails (v4.1.7, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails_12factor (v0.0.3, rbenv: 2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rails_serve_static_assets (v0.0.2, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails_serve_static_assets (v0.0.3, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails_stdout_logging (v0.0.3, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="railties (v4.1.7, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v10.4.2, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v4.2.0, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ref (v1.0.5, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="responders (v1.1.2, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rolify (v3.5.1, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.2.19, rbenv: 2.1.2) [gem]" level="application" />
@@ -166,12 +172,14 @@
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v2.12.3, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v2.2.2, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.3.10, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="therubyracer (v0.12.1, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.19.1, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.4, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tilt (v1.4.1, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="turbolinks (v2.5.3, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="twitter-bootstrap-rails (v3.2.0, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.2, rbenv: 2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="uglifier (v2.6.0, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="uglifier (v2.7.0, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.3, rbenv: 2.1.2) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
