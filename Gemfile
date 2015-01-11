@@ -27,12 +27,29 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 
-# Benutzer-Verwaltung
+#1/5 Benutzer-Verwaltung
 gem 'devise'
 
-# Rollen-Verwaltung
-
+#2/5 Rollen-Verwaltung
 gem 'rolify'
+
+#3/5 Bootstrap
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+gem 'devise-bootstrap-views'
+gem 'therubyracer',  platforms: :ruby
+
+#4/5 Routing Static Pages
+gem 'high_voltage'
+
+#5/5 Testing
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'guard-rspec'
+  gem 'faker'
+  gem 'capybara'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
