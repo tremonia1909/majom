@@ -53,6 +53,14 @@ gem 'therubyracer'
 # gem 'debugger', group: [:development, :test]
 
 
+# Tests - Rspec
+group :test, :development do
+ gem 'rspec-rails'
+ gem 'factory_girl_rails'
+ gem 'guard-rspec'
+ gem 'faker'
+end
+
 #Heroku
 group :production do
  gem 'pg'

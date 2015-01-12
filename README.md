@@ -10,6 +10,7 @@ Timeline :
 
 11.01.14 - Myles - Bootstrap, high_voltage (Siehe gesonderte Anleitung) eingebaut
 
+11.01.14 - Malte - Rspec
 
 
 
