@@ -36,7 +36,7 @@ gem 'rolify'
 gem 'high_voltage'
 
 #4/5 Bootstrap
-gem 'twitter-bootstrap-rails'
+gem "bootstrap-sass-rails", "~> 2.2.2.0"
 gem 'less-rails'
 gem 'therubyracer'
 
