@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+
 #1/5 Benutzer-Verwaltung
 gem 'devise'
 
@@ -39,6 +40,24 @@ gem 'high_voltage'
 gem "bootstrap-sass-rails", "~> 2.2.2.0"
 gem 'less-rails'
 gem 'therubyracer'
+
+#3/5 Bootstrap
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+gem 'devise-bootstrap-views'
+gem 'therubyracer',  platforms: :ruby
+
+#4/5 Routing Static Pages
+gem 'high_voltage'
+
+#5/5 Testing
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'guard-rspec'
+  gem 'faker'
+  gem 'capybara'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
