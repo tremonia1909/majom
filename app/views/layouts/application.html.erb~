@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Majom</title>
+<%= stylesheet_link_tag    'application', media: 'all' 'bootstrap.min.css',media: 'all' 'animate.css', media: 'all' 'style.css', media: 'all', 'data-turbolinks-track'=> true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track', 'jquery-2.1.1', 'bootstrap.min.js'  => true %>
+	  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
