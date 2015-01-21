@@ -9,6 +9,11 @@ Rails.application.config.assets.precompile += %w( bootstrap.min.js )
 Rails.application.config.assets.precompile += %w( bootstrap.min.css )
 Rails.application.config.assets.precompile += %w( animate.css )
 Rails.application.config.assets.precompile += %w( style.css )
+Rails.application.config.assets.precompile += %w( landing/bootstrap.css )
+Rails.application.config.assets.precompile += %w( landing/style.css )
+Rails.application.config.assets.precompile += %w( landing/animate.min.css )
+Rails.application.config.assets.precompile += %w( landing/font-awesome/css/font-awesome.min.css )
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
