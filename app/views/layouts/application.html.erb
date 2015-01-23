@@ -16,7 +16,18 @@
                             <img alt="image" class="img-circle" src="img/profile_small.jpg" />
                              </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">
+
+                              <% if user_signed_in? %>
+                                   <strong><%= current_user.first_name%> <%= current_user.last_name%></strong>.
+                                  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+                                  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                              <% else %>
+                                  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+                                  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+                              <% end %>
+
+                            </strong>
                              </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li><a href="profile.html">Profile</a></li>

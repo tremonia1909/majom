@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  #devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
   get 'pages/index' => 'high_voltage/pages#show', id: 'index'
 
