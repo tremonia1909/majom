@@ -310,7 +310,10 @@
 
 
                 <li>
+                  <% if user_signed_in? %>
                   <i class="fa fa-sign-out"><%= link_to "Abmelden", destroy_user_session_path, method: :delete  %></i>
+                  <% else %>
+                  <% end %>
                 </li>
             </ul>
 
