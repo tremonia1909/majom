@@ -1,33 +1,10 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>INSPINIA | Dashboard</title>
-
-    <link href="assets/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/assets/font-awesome.css" rel="stylesheet">
-
-    <!-- Morris -->
-    <link href="assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-
-    <!-- Gritter -->
-    <link href="assets/plugins/gritter/jquery.gritter.css" rel="stylesheet">
-
-    <link href="assets/animate.css" rel="stylesheet">
-    <link href="assets/style.css" rel="stylesheet">
-
-</head>
-
-<body>
-   
                 <div class="row  border-bottom white-bg dashboard-header">
 
                     <div class="col-sm-3">
-                        <h2>Welcome Amelia</h2>
+                      <% if user_signed_in? %>
+                        <h2>Hallo <%= current_user.first_name%> </h2>
+                          <% end%>
                         <small>You have 42 messages and 6 notifications.</small>
                         <ul class="list-group clear-list m-t">
                             <li class="list-group-item fist-item">
@@ -457,45 +434,46 @@
         </div>
     </div>
 
-    <!-- Mainly scripts -->
+
+    <!-- Mainly scripts
     <script src="assets/jquery-2.1.1.js"></script>
     <script src="assets/bootstrap.min.js"></script>
     <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-    <!-- Flot -->
+    -->
+    <!-- Flot
     <script src="assets/plugins/flot/jquery.flot.js"></script>
     <script src="assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
     <script src="assets/plugins/flot/jquery.flot.spline.js"></script>
     <script src="assets/plugins/flot/jquery.flot.resize.js"></script>
     <script src="assets/plugins/flot/jquery.flot.pie.js"></script>
-
-    <!-- Peity -->
+    -->
+    <!-- Peity
     <script src="assets/plugins/peity/jquery.peity.min.js"></script>
     <script src="assets/demo/peity-demo.js"></script>
-
-    <!-- Custom and plugin javascript -->
+    -->
+    <!-- Custom and plugin javascript
     <script src="assets/inspinia.js"></script>
     <script src="assets/plugins/pace/pace.min.js"></script>
-
-    <!-- jQuery UI -->
+    -->
+    <!-- jQuery UI
     <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-
-    <!-- GITTER -->
+    -->
+    <!-- GITTER
     <script src="assets/plugins/gritter/jquery.gritter.min.js"></script>
-
-    <!-- EayPIE -->
+    -->
+    <!-- EayPIE
     <script src="assets/plugins/easypiechart/jquery.easypiechart.js"></script>
-
-    <!-- Sparkline -->
+    -->
+    <!-- Sparkline
     <script src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
-
-    <!-- Sparkline demo data  -->
+    -->
+    <!-- Sparkline demo data
     <script src="assets/demo/sparkline-demo.js"></script>
-
-    <!-- ChartJS-->
+    -->
+    <!-- ChartJS
     <script src="assets/plugins/chartassets/Chart.min.js"></script>
-
+    -->
 
 
     <script>
@@ -644,5 +622,4 @@
 
         });
     </script>
-</body>
-</html>
+
