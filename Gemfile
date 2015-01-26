@@ -39,16 +39,8 @@ gem 'high_voltage'
 #4/5 Bootstrap
 gem "bootstrap-sass-rails", "~> 2.2.2.0"
 gem 'less-rails'
-gem 'therubyracer'
-
-#3/5 Bootstrap
-gem 'twitter-bootstrap-rails'
-gem 'less-rails'
 gem 'devise-bootstrap-views'
 gem 'therubyracer',  platforms: :ruby
-
-#4/5 Routing Static Pages
-gem 'high_voltage'
 
 #5/5 Testing
 group :development, :test do
@@ -71,14 +63,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-
-# Tests - Rspec
-group :test, :development do
- gem 'rspec-rails'
- gem 'factory_girl_rails'
- gem 'guard-rspec'
- gem 'faker'
-end
 
 #Heroku
 group :production do

@@ -26,28 +26,18 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-<<<<<<< HEAD
-=======
 
->>>>>>> develop
 #1/5 Benutzer-Verwaltung
 gem 'devise'
 
 #2/5 Rollen-Verwaltung
 gem 'rolify'
 
-<<<<<<< HEAD
 #3/5 Page Routing
 gem 'high_voltage'
 
 #4/5 Bootstrap
 gem "bootstrap-sass-rails", "~> 2.2.2.0"
-gem 'less-rails'
-gem 'therubyracer'
-
-=======
-#3/5 Bootstrap
-gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'devise-bootstrap-views'
 gem 'therubyracer',  platforms: :ruby
@@ -76,14 +66,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-
-# Tests - Rspec
-group :test, :development do
- gem 'rspec-rails'
- gem 'factory_girl_rails'
- gem 'guard-rspec'
- gem 'faker'
-end
 
 #Heroku
 group :production do
