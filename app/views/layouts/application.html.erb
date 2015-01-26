@@ -31,18 +31,8 @@
                         </div>
                     </li>
                   <li class="active">
-                  <% if user_signed_in? %>
 
-                        <a href="#"><i class="fa fa-star"></i><span class="nav-label"><%= current_user.first_name%> <%= current_user.last_name%></span></a>
-                        <ul class="nav nav-second-level">
-                          <li><%= link_to 'Einstellungen', edit_user_registration_path %></li>
-                          <li><%= link_to "Abmelden", destroy_user_session_path, method: :delete%></li>
-                        </ul>
-                  <%else%>
-                        <%= link_to "Registrieren", new_user_registration_path%><br>
-                        <%= link_to "Anmelden", new_user_session_path %>
-
-                  <% end %>
+                       <a href="#"><i class="fa fa-star"><%= current_user.first_name %> <%= current_user.last_name%></i><span class="nav-label"></span></a>
                   </li>
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
