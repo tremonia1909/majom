@@ -32,7 +32,7 @@
                     </li>
                   <li class="active">
 
-                        <%= link_to , edit_user_registration_path %><a href="#"><i class="fa fa-star"><%= current_user.first_name %> <%= current_user.last_name%></i><span class="nav-label"></span></a>
+                       <a href="#"><i class="fa fa-star"><%= current_user.first_name %> <%= current_user.last_name%></i><span class="nav-label"></span></a>
                   </li>
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>

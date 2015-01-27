@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   #devise_for :users
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  get 'pages/index' => 'high_voltage/pages#show', id: 'index'
+  resources :home
+  get '/landing', to: 'home#landing'
+
+  get '/', to: 'home#landing'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

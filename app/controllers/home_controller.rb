@@ -1,6 +1,6 @@
-class HomeController < ApplicationController
+class HomeController < ActionController::Base
   def landing
-
-    render :layout =>'layout/landing'
+    render layout: 'home'
   end
+
 end
