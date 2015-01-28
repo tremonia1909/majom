@@ -78,4 +78,11 @@ Rails.application.configure do
 
   config.assets.precompile += %w( .svg .eot .woff .ttf )
 
+  config.action_mailer.default_url_options = {:host => 'majom.net'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address => "127.0.0.1",
+      :port    => 993,
+      :domain  => 'majom.net'
+  }
 end

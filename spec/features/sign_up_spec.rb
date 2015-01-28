@@ -16,6 +16,7 @@ describe 'Registrierung'    do
           expect { click_button 'Sign up' }.to change { User.count }.by(1)
 
           page.should have_content 'Welcome, test@test.de'
+
         end
   end
 end
