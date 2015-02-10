@@ -5,4 +5,10 @@ class Role < ActiveRecord::Base
   validates :resource_type, :inclusion => { :in => Rolify.resource_types }
 
   scopify
+
+  has_many :user_packets
+  has_many :packets, through: :user_packets
+  has_many :user_projects
+  has_many :projects, through: :user_projects
+
 end

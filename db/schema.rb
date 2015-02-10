@@ -11,7 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123213513) do
+ActiveRecord::Schema.define(version: 20150210151650) do
+
+  create_table "comments", primary_key: "comment_id", force: true do |t|
+    t.string  "comment"
+    t.integer "packets_id"
+    t.integer "users_id"
+  end
+
+  create_table "packets", force: true do |t|
+    t.integer  "projects_id"
+    t.string   "packet_name"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.integer  "description_status"
+    t.string   "description"
+    t.float    "costs"
+    t.integer  "packet_before"
+    t.integer  "packet_after"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "packets", ["projects_id"], name: "index_packets_on_projects_id"
+
+  create_table "projects", force: true do |t|
+    t.string   "project_name"
+    t.date     "datum_start"
+    t.date     "datum_end"
+    t.string   "description"
+    t.float    "budget"
+    t.float    "process_status"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -23,6 +56,23 @@ ActiveRecord::Schema.define(version: 20150123213513) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "user_mailers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_packets", id: false, force: true do |t|
+    t.integer "users_id"
+    t.integer "packets_id"
+    t.integer "users_roles_id"
+  end
+
+  create_table "user_projects", id: false, force: true do |t|
+    t.integer "users_id"
+    t.integer "projects_id"
+    t.integer "users_roles_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

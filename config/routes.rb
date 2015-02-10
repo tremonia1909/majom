@@ -4,11 +4,13 @@ Rails.application.routes.draw do
 
   resources :home
   get '/landing', to: 'home#landing'
-
   get '/', to: 'home#landing'
+
+
   get 'pages/index' => 'high_voltage/pages#show', id: 'index'
-  # The priority is based upon order of creation: first created -> highest priority.
+  resources :project, :packet, :comment,  :user, :user_packet, :user_project,:userpacket, :userproject, :role
   # See how all your routes lay out with "rake routes".
+  # The priority is based upon order of creation: first created -> highest priority.
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

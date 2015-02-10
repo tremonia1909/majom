@@ -49,7 +49,6 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'faker'
   gem 'capybara'
-  gem 'mailcatcher'
 end
 
 # Use ActiveModel has_secure_password
