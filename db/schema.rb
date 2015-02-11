@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150210151650) do
 
-  create_table "comments", primary_key: "comment_id", force: true do |t|
+  create_table "comments", force: true do |t|
     t.string  "comment"
     t.integer "packets_id"
     t.integer "users_id"
@@ -22,28 +22,28 @@ ActiveRecord::Schema.define(version: 20150210151650) do
   create_table "packets", force: true do |t|
     t.integer  "projects_id"
     t.string   "packet_name"
-    t.date     "date_start"
-    t.date     "date_end"
-    t.integer  "description_status"
+    t.date     "start_date"
+    t.date     "deadline"
+    t.integer  "status"
     t.string   "description"
-    t.float    "costs"
-    t.integer  "packet_before"
-    t.integer  "packet_after"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.float    "expenses"
+    t.integer  "predecessor"
+    t.integer  "successor"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "packets", ["projects_id"], name: "index_packets_on_projects_id"
 
   create_table "projects", force: true do |t|
     t.string   "project_name"
-    t.date     "datum_start"
-    t.date     "datum_end"
+    t.date     "start_date"
+    t.date     "deadline"
     t.string   "description"
     t.float    "budget"
-    t.float    "process_status"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.float    "progress"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "roles", force: true do |t|

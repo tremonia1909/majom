@@ -5,11 +5,11 @@ class CreateMajomdbs < ActiveRecord::Migration
     create_table :projects do |t|
 
       t.string  :project_name
-      t.date    :datum_start
-      t.date    :datum_end
+      t.date    :start_date
+      t.date    :deadline
       t.string  :description
       t.float  :budget
-      t.float  :process_status
+      t.float  :progress
       t.timestamps null: false
 
     end
@@ -17,13 +17,13 @@ class CreateMajomdbs < ActiveRecord::Migration
 
       t.belongs_to :projects, index:true
       t.string  :packet_name
-      t.date    :date_start
-      t.date    :date_end
-      t.integer :description_status
+      t.date    :start_date
+      t.date    :deadline
+      t.integer :status
       t.string  :description
-      t.float  :costs
-      t.integer :packet_before
-      t.integer :packet_after
+      t.float   :expenses
+      t.integer :predecessor
+      t.integer :successor
       t.timestamps null: false
 
     end
@@ -43,8 +43,7 @@ class CreateMajomdbs < ActiveRecord::Migration
 
     end
 
-    create_table :comments, :id => false do |t|
-      t.primary_key :comment_id
+    create_table :comments do |t|
       t.string  :comment
       t.belongs_to :packets
       t.belongs_to :users
