@@ -5,8 +5,10 @@
                       <% if user_signed_in? %>
                         <h2>Hallo <%= current_user.first_name%> </h2>
                           <% end%>
-                        <small>You have 42 messages and 6 notifications.</small>
-                        
+                      <% if current_user %>
+                        <small>You are Admin ! </small>
+                          <% end %>
+
 
 			</div>
         <div class="row">

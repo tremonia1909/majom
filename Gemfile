@@ -34,6 +34,7 @@ gem 'devise'
 gem 'rolify'
 gem 'cancan'
 
+
 #3/5 Page Routing
 gem 'high_voltage'
 
@@ -51,6 +52,10 @@ group :development, :test do
   gem 'faker'
   gem 'capybara'
 end
+# 6/6 Calendar
+  gem 'fullcalendar-rails'
+  gem 'momentjs-rails'
+  gem 'responders'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -13,4 +13,4 @@
  *= require_self
  *= require_tree .
  *= require twitter/bootstrap/responsive
-
+ *= require fullcalendar

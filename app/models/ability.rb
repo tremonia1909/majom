@@ -4,8 +4,16 @@ class Ability
   def initialize(user)
     if user.has_role? :admin
       can :manage, :all
-    else
-      can :read, :all
+      end
+
+    if user.has_role = :project_manager
+      can :manage, :project
+      end
+    if user.has_role = :project_member
+      can :read, :project
+    end
+    if user.has_role = :packet_member
+      can :manage, :packet
     end
     # Define abilities for the passed in user here. For example:
     #
