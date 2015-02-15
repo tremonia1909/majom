@@ -32,6 +32,7 @@ gem 'devise'
 
 #2/5 Rollen-Verwaltung
 gem 'rolify'
+gem 'cancan'
 
 #3/5 Page Routing
 gem 'high_voltage'
@@ -66,6 +67,6 @@ end
 
 #Heroku
 group :production do
- gem 'pg'
+ #gem 'pg'
 gem 'rails_12factor'
 end
