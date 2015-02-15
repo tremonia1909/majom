@@ -34,7 +34,7 @@ $(document).ready(function () {
     });
 
     // Append config box / Only for demo purpose
-    $.get("skin-config", function (data) {
+    $.get("skin-config.html", function (data) {
         $('body').append(data);
     });
 
@@ -66,7 +66,7 @@ $(document).ready(function () {
             //    $(window).bind("load", function() {
             //        if($("body").hasClass('fixed-sidebar')) {
             //            $('.sidebar-collapse').slimScroll({
-            //                height: 'auto',
+            //                height: '100%',
             //                railOpacity: 0.9,
             //            });
             //        }
