@@ -1,1 +1,0 @@
-//= require blueimp/jquery.blueimp-gallery.min.js
