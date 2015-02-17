@@ -38,8 +38,8 @@ gem 'cancan'
 gem 'high_voltage'
 
 #4/5 Bootstrap
-gem "bootstrap-sass-rails", "~> 2.2.2.0"
-gem 'less-rails'
+gem 'bootstrap-sass', '3.3.0.0'
+gem 'font-awesome-rails', '4.3.0.0'
 gem 'devise-bootstrap-views'
 gem 'therubyracer',  platforms: :ruby
 

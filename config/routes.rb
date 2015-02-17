@@ -1,66 +1,91 @@
-Rails.application.routes.draw do
-  #devise_for :users
-  devise_for :users, :controllers => { registrations: 'registrations' }
-
-  resources :home
-  get '/landing', to: 'home#landing'
-  get '/', to: 'home#landing'
-
-
-  get 'pages/index' => 'high_voltage/pages#show', id: 'index'
-  resources :project, :packet, :comment,  :user, :user_packet, :user_project,:userpacket, :userproject, :role
-  # See how all your routes lay out with "rake routes".
-  # The priority is based upon order of creation: first created -> highest priority.
+Myapp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root to: 'dashboards#dashboard_1'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  # All routes
+  get "dashboards/dashboard_1"
+  get "dashboards/dashboard_2"
+  get "dashboards/dashboard_3"
+  get "dashboards/dashboard_4"
+  get "dashboards/dashboard_4_1"
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  get "layoutsoptions/index"
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  get "graphs/flot"
+  get "graphs/morris"
+  get "graphs/rickshaw"
+  get "graphs/chartjs"
+  get "graphs/peity"
+  get "graphs/sparkline"
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  get "mailbox/inbox"
+  get "mailbox/email_view"
+  get "mailbox/compose_email"
+  get "mailbox/email_templates"
+  get "mailbox/basic_action_email"
+  get "mailbox/alert_email"
+  get "mailbox/billing_email"
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  get "widgets/index"
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+  get "forms/basic_forms"
+  get "forms/advanced"
+  get "forms/wizard"
+  get "forms/file_upload"
+  get "forms/text_editor"
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+  get "appviews/contacts"
+  get "appviews/profile"
+  get "appviews/projects"
+  get "appviews/project_detail"
+  get "appviews/file_menager"
+  get "appviews/calendar"
+  get "appviews/faq"
+  get "appviews/timeline"
+  get "appviews/pin_board"
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  get "pages/search_results"
+  get "pages/lockscreen"
+  get "pages/invoice"
+  get "pages/invoice_print"
+  get "pages/login"
+  get "pages/login_2"
+  get "pages/register"
+  get "pages/not_found_error"
+  get "pages/internal_server_error"
+  get "pages/empty_page"
+
+  get "miscellaneous/notification"
+  get "miscellaneous/nestablelist"
+  get "miscellaneous/timeline_second_version"
+  get "miscellaneous/forum_view"
+  get "miscellaneous/forum_post_view"
+  get "miscellaneous/google_maps"
+  get "miscellaneous/code_editor"
+  get "miscellaneous/modal_window"
+  get "miscellaneous/validation"
+  get "miscellaneous/tree_view"
+  get "miscellaneous/chat_view"
+
+  get "uielements/typography"
+  get "uielements/icons"
+  get "uielements/draggable_panels"
+  get "uielements/buttons"
+  get "uielements/video"
+  get "uielements/tables_panels"
+  get "uielements/notifications_tooltips"
+  get "uielements/badges_labels_progress"
+
+  get "gridoptions/index"
+
+  get "tables/static_tables"
+  get "tables/data_tables"
+  get "tables/jqgrid"
+
+  get "gallery/basic_gallery"
+  get "gallery/bootstrap_carusela"
+
+  get "cssanimations/index"
+
 end

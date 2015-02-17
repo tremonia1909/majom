@@ -29,9 +29,8 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
-    bootstrap-sass-rails (2.2.2.1)
-      railties (>= 3.1.0)
-      sass-rails (>= 3.1.0)
+    bootstrap-sass (3.3.0.0)
+      sass (~> 3.2)
     builder (3.2.2)
     cancan (1.6.10)
     capybara (2.4.4)
@@ -50,7 +49,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    commonjs (0.2.7)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -70,6 +68,8 @@ GEM
     faker (1.4.3)
       i18n (~> 0.5)
     ffi (1.9.6)
+    font-awesome-rails (4.3.0.0)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     guard (2.11.1)
       formatador (>= 0.2.4)
@@ -96,11 +96,6 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
-    less (2.6.0)
-      commonjs (~> 0.2.7)
-    less-rails (2.6.0)
-      actionpack (>= 3.1)
-      less (~> 2.6.0)
     libv8 (3.16.14.7)
     listen (2.8.5)
       celluloid (>= 0.15.2)
@@ -223,7 +218,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass-rails (~> 2.2.2.0)
+  bootstrap-sass (= 3.3.0.0)
   cancan
   capybara
   coffee-rails (~> 4.0.0)
@@ -231,11 +226,11 @@ DEPENDENCIES
   devise-bootstrap-views
   factory_girl_rails
   faker
+  font-awesome-rails (= 4.3.0.0)
   guard-rspec
   high_voltage
   jbuilder (~> 2.0)
   jquery-rails
-  less-rails
   rails (= 4.1.7)
   rails_12factor
   rolify

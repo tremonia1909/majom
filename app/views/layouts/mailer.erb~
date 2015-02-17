@@ -1,9 +1,0 @@
-<!DOCTYPE html>
-<head>
-  <title>Majom| Project management</title>
-
-</head>
-<body>
-%yield%
-</body>
-</html>
