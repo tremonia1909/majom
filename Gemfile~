@@ -32,16 +32,18 @@ gem 'devise'
 
 #2/5 Rollen-Verwaltung
 gem 'rolify'
-gem 'cancan'
 
 #3/5 Page Routing
 gem 'high_voltage'
 
 #4/5 Bootstrap
-gem 'bootstrap-sass', '3.3.0.0'
-gem 'font-awesome-rails', '4.3.0.0'
+gem "bootstrap-sass-rails", "~> 2.2.2.0"
+gem 'less-rails'
 gem 'devise-bootstrap-views'
 gem 'therubyracer',  platforms: :ruby
+
+#4/5 Routing Static Pages
+gem 'high_voltage'
 
 #5/5 Testing
 group :development, :test do
@@ -67,6 +69,6 @@ end
 
 #Heroku
 group :production do
- #gem 'pg'
+ gem 'pg'
 gem 'rails_12factor'
 end

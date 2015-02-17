@@ -50,6 +50,10 @@ class CreateMajomdbs < ActiveRecord::Migration
 
     end
 
+    create_table :contacts do |t|
+      t.belongs_to :users
+      t.belongs_to :users
+    end
 
   end
 end
