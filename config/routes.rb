@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :events
+
 
   #devise_for :users
   devise_for :users, :controllers => { registrations: 'registrations' }
@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :project, :packet, :comment,  :user, :user_packet, :user_project,:userpacket, :userproject, :role
   resources :home
   resources :packet
+
+  #Kalender-Events
+  resources :events
 
   get '/landing', to: 'home#landing'
   get '/', to: 'home#landing'
@@ -18,6 +21,9 @@ Rails.application.routes.draw do
 
   post "/packets/new", to: 'packets#create'
   post "create_project", to: 'projects#create'
+
+
+  get '/calendar', to: 'events#calendar'
 
 
   get 'pages/index' => 'high_voltage/pages#show', id: 'index'

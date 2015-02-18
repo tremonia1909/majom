@@ -26,6 +26,7 @@ class PacketsController < ApplicationController
     # POST /packets.json
     def create
       @packet = Packet.new(packet_params, :projects_id => @id)
+
       respond_to do |format|
         if @packet.save
           format.html {
