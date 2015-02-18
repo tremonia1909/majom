@@ -15,4 +15,5 @@
 /log/*.log
 /tmp
 
-/.idea
+/.idea/majom.iml
+/.idea/workspace.xml
