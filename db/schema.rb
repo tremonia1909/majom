@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(version: 20150215143904) do
     t.integer "users_id"
   end
 
+  create_table "contacts", force: true do |t|
+    t.integer "users_id"
+  end
+
   create_table "events", force: true do |t|
     t.string   "title"
     t.text     "description"

@@ -4,13 +4,24 @@ Rails.application.routes.draw do
   #devise_for :users
   devise_for :users, :controllers => { registrations: 'registrations' }
 
+  resources :projects, :packets
+  resources :project, :packet, :comment,  :user, :user_packet, :user_project,:userpacket, :userproject, :role
   resources :home
+  resources :packet
+
   get '/landing', to: 'home#landing'
   get '/', to: 'home#landing'
+  get 'create_project', to: 'projects#new'
+  get 'create_packet', to: 'packets#new'
+  get '/project', to: 'packets#show'
+  post 'project', to: 'packets#show'
+
+  post "/packets/new", to: 'packets#create'
+  post "create_project", to: 'projects#create'
 
 
   get 'pages/index' => 'high_voltage/pages#show', id: 'index'
-  resources :project, :packet, :comment,  :user, :user_packet, :user_project,:userpacket, :userproject, :role
+
   # See how all your routes lay out with "rake routes".
   # The priority is based upon order of creation: first created -> highest priority.
 

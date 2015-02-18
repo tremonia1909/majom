@@ -1,6 +1,5 @@
 
 class Packet < ActiveRecord::Base
-  attr_accessible :all
   belongs_to :project
   has_many :comments
   has_many :user_packets

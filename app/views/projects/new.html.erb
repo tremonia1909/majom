@@ -9,35 +9,17 @@
           <div class="ibox-title">
                   Schritt für Schritt ein neues Projekt erstellen
           </div>
-          <p><div class="form-group"><label class="col-sm-2 control-label">Projektname</label>
 
-          <div class="col-sm-10"><input type="text" class="form-control"></div>
-        </div>
 
-          <div class="form-group " id="startdate">
-            <label class="col-sm-2 control-label">Start:</label>
-            <div class="input-group date">
-              <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control " value="03/04/2014">
-            </div>
-          </div>
+          <%= form_for(:project, as: :project, url: { action: 'create' }) do |f| %>
+              <div class="form-group"><%= f.text_field        :project_name,             :placeholder => 'Projektname',:autofocus => true   ,:class=>'form-control'  %> </div>
+              <div class="form-group"><%= f.number_field   :budget,  step: 0.01,         :placeholder => 'Budget',  :class=>'form-control'  %> </div>
+              <div class="form-group"><%= f.date_field        :start_date,            :placeholder => 'Start'               ,:class=>'form-control'   %> </div>
+              <div class="form-group"><%= f.date_field        :deadline,             :placeholder => 'Deadline'              ,:class=>'form-control'   %> </div>
+              <div class="form-group"><%= f.text_field       :description,                 :placeholder => 'Beschreibung'         ,:class=>'form-control'   %> </div>
+              <%= f.submit "Projekt erstellen", :class=>'btn btn-outline btn-primary dim pull-right' %>
 
-          <div class="form-group" id="deadline">
-            <label class="col-sm-2 control-label">Deadline:</label>
-            <div class="input-group date">
-              <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control " value="03/04/2014">
-            </div>
-          </div>
-          <div class="form-group"><label class="col-sm-2 control-label">Beschreibung</label>
-
-            <div class="col-sm-10"><input type="text" class="form-control"></div>
-          </div>
-</div>
-
-    </div>
-  </div>
-</div>
-<button class="btn btn-outline btn-primary dim pull-right" type="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-check">Projekt erstellen</i></button>
-
+          <% end %>
 
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
