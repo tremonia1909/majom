@@ -1,9 +1,12 @@
-﻿<div id="wrapper">
+﻿
+<%= javascript_include_tag "plugins/peity/jquery.peity.min.js", "plugins/jquery-ui/jquery-ui.min.js", "plugins/iCheck/icheck.min.js", "demo/peity-demo.js" %>
+
+<div id="wrapper">
   <div class="col-lg-10">
     <h2 class= "pull-left"> Projekt Übersicht</h2>
   </div>
 
-  <button class="btn btn-outline btn-info  dim" type="button" type="button" data-toggle="modal" data-target="#myModal">
+  <button class="btn btn-outline btn-info  dim" type="button" data-toggle="modal" data-target="#myModal">
     <i class="fa fa-paste"></i>
     Neues Projekt
   </button>
@@ -12,7 +15,7 @@
   <div class="wrapper wrapper-content  animated fadeInRight">
     <div class="row" id="sortable-view">
       <div class="col-lg-6">
-        <div class="ibox ">
+        <div class="ibox">
           <div class="ibox-title">
             <h5>Drag&amp;Drop</h5>
             <div class="ibox-tools">
@@ -134,7 +137,7 @@
           <button type="button" class="btn btn-primary" >
             Projekt erstellen
           </button>
-        </a
+        </a>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal -->

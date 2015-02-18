@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   get 'create_project', to: 'projects#new'
   get 'create_packet', to: 'packets#new'
   get '/project', to: 'packets#show'
+  get 'dashboard', to: 'packets#dashboard'
+
   post 'project', to: 'packets#show'
+
 
   post "/packets/new", to: 'packets#create'
   post "create_project", to: 'projects#create'

@@ -1,0 +1,47 @@
+
+<div class="col-lg-3">
+    <div class="ibox float-e-margins" >
+        <div class="ibox-title" align="center">
+            <h5>Aufgaben</h5>
+        </div>
+        <div class="ibox-content" >
+        <% @packets.each do |packet| %>
+
+            <div class="col-lg-3">
+                <button type="button" class="btn btn-outline btn-default"><%=packet.packet_name %>></button>
+            </div>
+        <%end%>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title" align="center">
+            <h5>In Bearbeitung</h5>
+        </div>
+        <div class="ibox-content">
+            <button type="button" class="btn btn-outline btn-primary" >Bearbeitung guiuih hui ol</button>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title" align="center">
+            <h5>Fertig</h5>
+        </div>
+        <div class="ibox-content">
+            <button type="button" class="btn btn-outline btn-success">Success</button>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title" align="center">
+            <h5>Fertig</h5>
+        </div>
+        <div class="ibox-content">
+            <button type="button" class="btn btn-outline btn-success">Success</button>
+        </div>
+    </div>
+</div>

@@ -17,6 +17,7 @@ Rails.application.config.assets.precompile += %w( plugins/jquery-ui/jquery-ui.mi
 Rails.application.config.assets.precompile += %w( plugins/iCheck/icheck.min.js )
 Rails.application.config.assets.precompile += %w( demo/peity-demo.js )
 Rails.application.config.assets.precompile += %w( jquery-ui.custom.min.js )
+Rails.application.config.assets.precompile += %w( jquery-ui-1.10.4.min.js )
 
 Rails.application.config.assets.precompile += %w( animate.css )
 Rails.application.config.assets.precompile += %w( style.css )
