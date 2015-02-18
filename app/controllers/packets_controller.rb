@@ -6,6 +6,13 @@ class PacketsController < ApplicationController
     # GET /packets.json
     def index
       @packets = Packet.all
+      end
+    def dashboard
+      @packets = Packet.all
+      #@packets= Packet.where(id: 2).take
+      #@packets = @packets.find{|packet|
+       #packet.projects_id == 38
+     #}
     end
 
     # GET /packets/1
@@ -25,17 +32,19 @@ class PacketsController < ApplicationController
     # POST /packets
     # POST /packets.json
     def create
-      @packet = Packet.new(packet_params, :projects_id => @id)
-
+      @packet = Packet.new(packet_params)
       respond_to do |format|
-        if @packet.save
-          format.html {
-            redirect_to :controller => 'packets', :action => 'new', :id => @packet.projects_id, :flash => { :success => "Message" } }
-          format.json { render :show, status: :created, location: @packet }
-        else
-          format.html { render :new }
-          format.json { render json: @packet.errors, status: :unprocessable_entity }
-        end
+          if @packet.save
+              if params[:commit] == 'Paket erstellen'
+                format.html {redirect_to :controller => 'packets', :action => 'new', :id => @packet.projects_id, :flash => { :success => "Message" }}
+              elsif  params[:commit] == 'Fertig'
+                format.html { redirect_to dashboard, :id => @packet.projects_id, :flash => { :success => "Message" }}
+              end
+            format.json { render :show, status: :created, location: @packet }
+          else
+            format.html { render :new }
+            format.json { render json: @packet.errors, status: :unprocessable_entity }
+          end
       end
     end
 

@@ -11,6 +11,8 @@ class ProjectsController < ApplicationController
     # GET /projects/1
     # GET /projects/1.json
     def show
+
+
     end
 
     # GET /projects/new
