@@ -1,21 +1,24 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe 'Registrierung'    do
+describe 'Abmeldung' do
 
-  it 'should User registrieren' do
+  it 'should User sign_up' do
     before(:each) do
-          visit root_path
+          visit root_path/index
         end
 
         it 'allows to sign up' do
-          click_link 'Sign up'
+          click_link 'Registrieren'
+          fill_in 'Benutzername', with: 'test'
+          fill_in 'Vorname', with: 'max'
+          fill_in 'Nachname', with: 'mustermann'
           fill_in 'user_email', with: 'test@test.de'
           fill_in 'user_password', with: 'monkey123'
           fill_in 'user_password_confirmation', with: 'monkey123'
 
-          expect { click_button 'Sign up' }.to change { User.count }.by(1)
+          expect { click_button 'Registrieren' }.to change { User.count }.by(1)
 
-          page.should have_content 'Welcome, test@test.de'
+          page.should have_content 'Welcome, test'
 
         end
   end
