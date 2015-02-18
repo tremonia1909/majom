@@ -1,0 +1,19 @@
+class PacketsController < ApplicationController
+  def create
+
+    # Hier fehlt noch die if abfrage nach der Value. Um herauszufinden ob fertig oder weiter
+    @packet = Packet.new(params[:packet])
+    @packet.create[:packet]
+    if @packet.save
+      redirect_to 'create_packet', notice: "Projekt erfolgreich erstellt"
+    end
+  end
+
+  def new
+    @packet = Packet.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+    end
+  end
+end
