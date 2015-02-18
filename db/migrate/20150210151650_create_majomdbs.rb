@@ -8,7 +8,7 @@ class CreateMajomdbs < ActiveRecord::Migration
       t.date    :start_date
       t.date    :deadline
       t.string  :description
-      t.float  :budget
+      t.decimal  :budget
       t.float  :progress
       t.timestamps null: false
 
