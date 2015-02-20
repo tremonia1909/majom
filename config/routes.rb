@@ -19,16 +19,21 @@ Rails.application.routes.draw do
   get '/project', to: 'packets#show'
   get 'dashboard', to: 'packets#dashboard'
 
+
   post 'project', to: 'packets#show'
 
-
+  #Paket-Erstellung
   post "/packets/new", to: 'packets#create'
+  #Projekt-Erstellung
   post "create_project", to: 'projects#create'
 
+  #Kalender
+  get '/pages/calendar', to: 'events#calendar'
+  get 'calendar' ,to: 'events#calendar'
+  #Termin-Übersicht
+    get 'events' ,to: 'events#index'
 
-  get '/calendar', to: 'events#calendar'
-
-
+  #Startseite
   get 'pages/index' => 'high_voltage/pages#show', id: 'index'
 
   # See how all your routes lay out with "rake routes".

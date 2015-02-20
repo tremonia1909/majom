@@ -2,7 +2,9 @@
 <head>
   <title>Majom| Project management</title>
   <%= stylesheet_link_tag    'application', 'bootstrap.min.css', 'font-awesome/css/font-awesome.css', 'animate.css', 'style.css', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'inspinia.js','plugins/pace/pace.min.js', "jquery-2.1.1.js","bootstrap.min.js","plugins/metisMenu/jquery.metisMenu.js","plugins/slimscroll/jquery.slimscroll.min.js" 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', "inspinia.js","plugins/pace/pace.min.js", "jquery-2.1.1.js","bootstrap.min.js","plugins/metisMenu/jquery.metisMenu.js","plugins/slimscroll/jquery.slimscroll.min.js", 'data-turbolinks-track' => true %>
+
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -53,8 +55,16 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="calendar"><i class="fa fa-calendar"></i> <span class="nav-label">Kalender </span></a>
+                        <a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Termine </span></a>
+
+                      <ul class="nav nav-second-level">
+
+                        <li><a href="events">Übersicht </a></li>
+                        <li><a href="calendar"> Kalender </a></li>
+
+                      </ul>
                     </li>
+
                 </ul>
             </div>
           </nav>
