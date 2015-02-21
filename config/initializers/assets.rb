@@ -18,6 +18,8 @@ Rails.application.config.assets.precompile += %w( plugins/iCheck/icheck.min.js )
 Rails.application.config.assets.precompile += %w( demo/peity-demo.js )
 Rails.application.config.assets.precompile += %w( jquery-ui.custom.min.js )
 Rails.application.config.assets.precompile += %w( jquery-ui-1.10.4.min.js )
+Rails.application.config.assets.precompile += %w( plugins/datapicker/bootstrap-datepicker.js )
+Rails.application.config.assets.precompile += %w( plugins/fullcalendar/fullcalendar.min.js)
 
 Rails.application.config.assets.precompile += %w( animate.css )
 Rails.application.config.assets.precompile += %w( style.css )
@@ -29,6 +31,8 @@ Rails.application.config.assets.precompile += %w( font-awesome/css/font-awesome.
 Rails.application.config.assets.precompile += %w( bootstrap.min.css )
 Rails.application.config.assets.precompile += %w( plugins/fullcalendar/fullcalendar.css )
 Rails.application.config.assets.precompile += %w( plugins/iCheck/custom.css )
+Rails.application.config.assets.precompile += %w( plugins/datapicker/datepicker3.css)
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )

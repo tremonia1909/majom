@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :events
+
 
   #devise_for :users
   devise_for :users, :controllers => { registrations: 'registrations' }
@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :home
   resources :packet
 
+  #Kalender-Events
+  resources :events
+
   get '/landing', to: 'home#landing'
   get '/', to: 'home#landing'
   get 'create_project', to: 'projects#new'
@@ -17,13 +20,24 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'packets#dashboard'
   get 'overview', to: 'projects#show'
 
+
   post 'project', to: 'packets#show'
 
-
+  #Paket-Erstellung
   post "/packets/new", to: 'packets#create'
+  #Projekt-Erstellung
   post "create_project", to: 'projects#create'
 
+  #Kalender
+  get '/pages/calendar', to: 'events#calendar'
+  get 'calendar' ,to: 'events#calendar'
+  #Termin-Übersicht
+  get 'pages/events' ,to: 'events#index'
+  get 'events', to: 'events#index'
+  patch 'events' , to: 'events#update'
 
+
+  #Startseite
   get 'pages/index' => 'high_voltage/pages#show', id: 'index'
 
   # See how all your routes lay out with "rake routes".
