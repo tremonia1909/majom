@@ -1,0 +1,97 @@
+﻿
+<%= javascript_include_tag "plugins/peity/jquery.peity.min.js", "plugins/jquery-ui/jquery-ui.min.js", "plugins/iCheck/icheck.min.js", "demo/peity-demo.js" %>
+
+<div id="wrapper">
+  <div class="col-lg-10">
+    <h2 class= "pull-left"> Projekt Übersicht</h2>
+  </div>
+
+  <button class="btn btn-outline btn-info  dim" type="button" data-toggle="modal" data-target="#myModal">
+    <i class="fa fa-paste"></i>
+    Neues Projekt
+  </button>
+
+
+  <div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row" id="sortable-view">
+      <% @projects.each do |project| %>
+      <div class="col-lg-4">
+        <div class="widget lazur-bg p-xl">
+
+          <h2>
+           #<%=project.id %> <%=project.project_name %>
+          </h2>
+          <ul class="list-unstyled m-t-md">
+            <li>
+              <span class="fa fa-envelope m-r-xs"></span>
+              <label>Beschreibung:</label>
+              <%=project.description %>
+            </li>
+            <li>
+              <span class="fa fa-home m-r-xs"></span>
+              <label>Deadline:</label>
+              <%=project.deadline %>
+            </li>
+            <li>
+              <span class="fa fa-phone m-r-xs"></span>
+              <label>Projektleitung:</label>
+              Name
+            </li>
+          </ul>
+
+        </div>
+
+    </div>
+  </div>
+  <div class="footer">
+    <div class="pull-right">
+      10GB of <strong>250GB</strong> Free.
+    </div>
+    <div>
+      <strong>Copyright</strong> Example Company &copy; 2014-2015
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          Projekt erstellen?
+        </h4>
+      </div>
+      <div class="modal-body">
+        Möchtest du ein Projekt erstellen?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"
+                data-dismiss="modal">Abbrechen
+        </button>
+        <a href ="create_project">
+          <button type="button" class="btn btn-primary" >
+            Projekt erstellen
+          </button>
+        </a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+<script>
+    $(document).ready(function(){
+        <!-- Enable portlets -->
+        WinMove();
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
+</script>

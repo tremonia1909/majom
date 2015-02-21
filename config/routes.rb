@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'create_packet', to: 'packets#new'
   get '/project', to: 'packets#show'
   get 'dashboard', to: 'packets#dashboard'
+  get 'overview', to: 'projects#show'
 
   post 'project', to: 'packets#show'
 
