@@ -1,0 +1,37 @@
+<h1>Bearbeitung</h1>
+<div class="col-lg-5">
+  <div class="ibox float-e-margins">
+    <div class="ibox-content">
+
+      <%= form_for @event, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+          <div class="form-group"><label class="col-sm-5 control-label">Titel</label><%= f.text_field :title      %></div>
+          <div class="form-group"><label class="col-sm-5 control-label">Beschreibung</label><%= f.text_area :description %></div>
+
+          <div class="form-group" id="data_1">
+            <div class="col-lg-15 input-group date ">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <%= f.text_field :start_time, class:"form-control", value:"01.01.2015" %>
+            </div>
+          </div>
+          <div class="form-group" id="data_1">
+            <div class="col-lg-15 input-group date ">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <%= f.text_field :end_time, class:"form-control", value:"01.01.2015" %>
+            </div>
+          </div>
+          <%= f.submit 'Termin speichern', class:"btn btn-block btn-outline btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="col-lg-2">
+  <div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <button type="button" class="btn btn-outline btn-info"><%= link_to 'Details', @event %></button><br>
+        <button type="button" class="btn btn-outline btn-info"><%= link_to 'Übersicht', events_path %></button>
+    </div>
+  </div>
+</div>

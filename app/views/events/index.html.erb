@@ -1,0 +1,46 @@
+<h1>Übersicht </h1>
+
+<div class="col-lg-8">
+  <div class="ibox float-e-margins">
+    <div class="ibox-content">
+
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Titel</th>
+          <th>Beschreibung</th>
+          <th>Datum_Anfang</th>
+          <th>Datum_Ende</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @events.each do |event| %>
+          <tr>
+            <td><%= event.title %></td>
+            <td><%= event.description %></td>
+            <td><%= event.start_time %></td>
+            <td><%= event.end_time %></td>
+            <td><%= link_to ' ', event %></td>
+            <td><%= link_to ' ', edit_event_path(event) , class: "fa fa-sign-out" %></td>
+            <td><%= link_to ' ', event, method: :delete, data: { confirm: 'Are you sure?' },   class: "fa fa-eraser" %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-2">
+  <div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <button type="button" class="btn btn-outline btn-primary"><%= link_to 'Neuer Termin', new_event_path %></button>
+    </div>
+  </div>
+</div>
+
+
+
