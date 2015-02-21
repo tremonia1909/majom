@@ -31,7 +31,10 @@ Rails.application.routes.draw do
   get '/pages/calendar', to: 'events#calendar'
   get 'calendar' ,to: 'events#calendar'
   #Termin-Übersicht
-    get 'events' ,to: 'events#index'
+  get 'pages/events' ,to: 'events#index'
+  get 'events', to: 'events#index'
+  patch 'events' , to: 'events#update'
+
 
   #Startseite
   get 'pages/index' => 'high_voltage/pages#show', id: 'index'
