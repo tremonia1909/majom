@@ -32,15 +32,14 @@ class CreateMajomdbs < ActiveRecord::Migration
     create_table :user_packets, :id => false do |t|
       t.belongs_to :users
       t.belongs_to :packets
-      t.belongs_to :users_roles
+      t.integer :users_roles
 
     end
 
     create_table :user_projects, :id => false do |t|
       t.belongs_to :users
       t.belongs_to :projects
-      t.belongs_to :users_roles
-
+      t.integer :users_roles
     end
 
     create_table :comments do |t|
@@ -50,10 +49,6 @@ class CreateMajomdbs < ActiveRecord::Migration
 
     end
 
-    create_table :contacts do |t|
-      t.belongs_to :users
-      t.belongs_to :users
-    end
 
   end
 end

@@ -1,0 +1,40 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-9">
+    <h2>Contacts</h2>
+    <ol class="breadcrumb">
+      <li>Home</li>
+      <li>
+        App Views
+      </li>
+      <li class="active">
+        <strong>Contacts</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+<%if @contacts.count() >0 %>
+    <%@contacts.each do |contact|%>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="contact-box">
+        <%= link_to :controller => 'contacts', :action => 'profile', :id => contact.conID do%>
+          <div class="col-sm-4">
+            <div class="text-center">
+              <img alt="image" class="img-circle m-t-xs img-responsive" src="<%= image_path('a2.jpg')%>">
+              <div class= "m-t-xs font-bold">Job</div>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <h3><strong><% contact.first_name %> <%contact.last_name%></strong></h3>
+            <p><i class="fa fa-email"></i> <%contact.email%></p>
+          </div>
+          <div class="clearfix"></div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+<%end%>
+<%else%>
+    <h1 class="logo-name">Keine Kontakte</h1>
+<%end%>
