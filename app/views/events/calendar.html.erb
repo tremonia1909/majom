@@ -1,54 +1,13 @@
 <%= stylesheet_link_tag  "plugins/fullcalendar/fullcalendar.css",  "plugins/iCheck/custom.css" %>
 <%= javascript_include_tag   'jquery-ui.custom.min.js', "plugins/iCheck/icheck.min.js","plugins/fullcalendar/fullcalendar.min.js", 'data-turbolinks-track' => true %>
 
-<div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-8">
-        <h2>Kalender</h2>
-
-    </div>
-</div>
-<div class="wrapper wrapper-content">
-    <div class="row animated fadeInDown">
-        <div class="col-lg-3">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>Aufgaben Übersicht</h5>
-
-                </div>
-                <div class="ibox-content">
-                    <div id='external-events'>
-                        <p>Bislang keine Termine definiert für : </p>
-
-                      <% @events.each do |event| %>
-                            <div class='external-event navy-bg'><%= event.title %></div>
-                      <% end %>
-                        <p class="m-t">
-                            <input type='checkbox' id='drop-remove' class="i-checks" checked /> <label for='drop-remove'>Löschung nach Vergabe</label>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-9">
-            <div class="ibox float-e-margins">
-
-                <div class="ibox-content">
-                    <div id="calendar"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-</div>
-</div>
 <script>
     $(document).ready(function() {
 
-            $('.i-checks').iCheck({
-                checkboxClass: 'icheckbox_square-green',
-                radioClass: 'iradio_square-green'
-            });
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green'
+        });
 
         /* initialize the external events
          -----------------------------------------------------------------*/
@@ -102,3 +61,43 @@
     });
 
 </script>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-8">
+        <h2>Kalender</h2>
+
+    </div>
+</div>
+
+<div class="wrapper wrapper-content">
+    <div class="row animated fadeInDown">
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Aufgaben Übersicht</h5>
+                </div>
+                <div class="ibox-content">
+                    <div id='external-events'>
+                      <% @events.each do |event| %>
+                            <div class='external-event navy-bg'><%= event.title %></div>
+                      <% end %>
+                        <p class="m-t">
+                            <input type='checkbox' id='drop-remove' class="i-checks" checked /> <label for='drop-remove'>Löschung nach Vergabe</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="ibox float-e-margins">
+
+                <div class="ibox-content">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
