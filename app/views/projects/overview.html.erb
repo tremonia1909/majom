@@ -1,0 +1,102 @@
+﻿
+<%= javascript_include_tag "plugins/peity/jquery.peity.min.js", "plugins/jquery-ui/jquery-ui.min.js", "plugins/iCheck/icheck.min.js", "demo/peity-demo.js" %>
+
+<div id="wrapper">
+  <div class="col-lg-10">
+    <h2 class= "pull-left"> Projekt Übersicht</h2>
+  </div>
+
+  <button class="btn btn-outline btn-info  dim" type="button" data-toggle="modal" data-target="#myModal">
+    <i class="fa fa-paste"></i>
+    Neues Projekt
+  </button>
+</div>
+
+
+<div class="wrapper wrapper-content  animated fadeInRight">
+  <%if @projects.count() >0 %>
+      <%@projects.each do |project|%>
+          <div class= "col-xs-12 col-sm-6 col-md-4" >
+            <div class="widget lazur-bg p-xl" id = "widget">
+
+              <h2>
+                <%=link_to dashboard_url(:id => project.id), :controller => 'packets', :action => 'dashboard' do%> #<%=project.pid %> <%=project.project_name %> <%end%>
+              </h2>
+              <ul class="list-unstyled m-t-md">
+                <li>
+                  <span class="fa fa-user m-r-xs"></span>
+                  <label>Projektleitung:</label>
+                  Name
+                </li>
+                <li>
+                  <span class="fa fa-calendar m-r-xs"></span>
+                  <label>Deadline:</label>
+                  <%=project.deadline %>
+                </li>
+                <li>
+                  <span class="fa fa-file-text-o m-r-xs"></span>
+                  <label>Beschreibung:</label>
+                  <%=project.description %>
+                </li>
+              </ul>
+
+            </div>
+        </div>
+      <%end%>
+      <%else%>
+        <h1 class="logo-name">Aktuell keine Projekte</h1>
+  <%end%>
+
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          Projekt erstellen?
+        </h4>
+      </div>
+      <div class="modal-body">
+        Möchtest du ein Projekt erstellen?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"
+                data-dismiss="modal">Abbrechen
+        </button>
+        <a href ="create_project">
+          <button type="button" class="btn btn-primary" >
+            Projekt erstellen
+          </button>
+        </a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
+</script>
+
+<script type="text/javascript">
+    var divs = document.getElementById("widget");
+    var test = divs.length;
+    var maxHeight = 0;
+    for(var i = 0; i < divs.length; i++){
+        if (divs[i].height > maxHeight){
+            maxHeight = divs[i].height;
+        }
+    }
+    for(var i = 0; i < divs.length; i++){
+        divs[i].height = maxHeight;
+    }
+</script>

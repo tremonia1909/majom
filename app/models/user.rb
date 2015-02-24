@@ -11,5 +11,9 @@ class User < ActiveRecord::Base
   has_many :user_projects
   has_many :projects, through: :user_projects
 
-  has_many :comments
+  has_many :persons, :class_name => 'contact', :foreign_key => 'persons_id'
+  has_many :contacts, :class_name => 'contact', :foreign_key => 'contacts_id'
+
+
+  has_many :comment
 end

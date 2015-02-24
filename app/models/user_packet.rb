@@ -1,6 +1,10 @@
 class UserPacket < ActiveRecord::Base
-  attr_accessible :all
+  enum users_roles: [:manager, :member]
   belongs_to :user
   belongs_to :packet
-  belongs_to :role
+  #belongs_to :role
+
+
+  
+
 end

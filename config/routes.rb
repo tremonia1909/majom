@@ -12,20 +12,32 @@ Rails.application.routes.draw do
   #Kalender-Events
   resources :events
 
+  #Landing
   get '/landing', to: 'home#landing'
   get '/', to: 'home#landing'
+
+  #Projekt
   get 'create_project', to: 'projects#new'
+  post "create_project", to: 'projects#create'
+  #get '/project', to: 'packets#show'
+  #get 'project/add_user', to: 'projects#add_user'
+  get 'add_user', to: 'projects#add_user'
+  get 'overview', to: 'projects#overview'
+
+  #Packet
   get 'create_packet', to: 'packets#new'
-  get '/project', to: 'packets#show'
   get 'dashboard', to: 'packets#dashboard'
+  post "/packets/new", to: 'packets#create'
+
+  #Kontakte
+  get 'contacts', to: 'contacts#contacts'
+  get 'show', to: 'contacts#show'
+  get 'profile', to: 'contacts#profile'
 
 
-  post 'project', to: 'packets#show'
 
   #Paket-Erstellung
-  post "/packets/new", to: 'packets#create'
   #Projekt-Erstellung
-  post "create_project", to: 'projects#create'
 
   #Kalender
   get '/pages/calendar', to: 'events#calendar'

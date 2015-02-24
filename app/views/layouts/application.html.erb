@@ -33,16 +33,15 @@
                     </li>
                   <li class="active">
 
-                       <a href="#"><i class="fa fa-star"><%= current_user.first_name %> <%= current_user.last_name%></i><span class="nav-label"></span></a>
+                    <%=link_to :controller => 'contacts', :action => 'show' do%> <i class="fa fa-star"><%= current_user.first_name %> <%= current_user.last_name%></i><span class="nav-label"></span> <%end%>
+
                   </li>
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Projekte</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
 
-                            <li><a href="overview"> Overview </a></li>
-                            <li><a href="">P1</a></li>
-                            <li><a href="">P2</a></li>
-                            <li><a href="">P3</a></li>
+                            <li><%=link_to 'Overview', overview_url%> </li>
+
                         </ul>
                     </li>
                     <li>
