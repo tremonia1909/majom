@@ -44,7 +44,7 @@
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            editable: true,
+            editable: false,
             droppable: true, // this allows things to be dropped onto the calendar
             drop: function() {
                 // is the "remove after drop" checkbox checked?
@@ -70,24 +70,7 @@
 </div>
 
 <div class="wrapper wrapper-content">
-    <div class="row animated fadeInDown">
-        <div class="col-lg-3">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>Aufgaben Übersicht</h5>
-                </div>
-                <div class="ibox-content">
-                    <div id='external-events'>
-                      <% @events.each do |event| %>
-                            <div class='external-event navy-bg'><%= event.title %></div>
-                      <% end %>
-                        <p class="m-t">
-                            <input type='checkbox' id='drop-remove' class="i-checks" checked /> <label for='drop-remove'>Löschung nach Vergabe</label>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="col-lg-9">
             <div class="ibox float-e-margins">
 
@@ -96,8 +79,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
 </div>
-</div>
+
+
