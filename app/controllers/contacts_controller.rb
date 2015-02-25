@@ -21,7 +21,7 @@ class ContactsController < ApplicationController
             (Select * FROM contacts where persons_id = ?) contact
           JOIN
             (Select id, first_name, last_name, email FROM users) user
-          on contact.contacts_id = user.id;'], current_user.id)
+          on contact.contacts_id = user.id;', current_user.id])
     end
 
     # GET /contacts/new

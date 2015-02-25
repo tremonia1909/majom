@@ -10,7 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *= require twitter/bootstrap
+ *= require font-awesome
  *= require_self
  *= require_tree .
- *= require twitter/bootstrap/responsive
  *= require fullcalendar

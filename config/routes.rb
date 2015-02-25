@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :projects, :packets
   resources :project, :packet, :comment,  :user, :user_packet, :user_project,:userpacket, :userproject, :role
   resources :home
-  resources :packet
 
   #Kalender-Events
   resources :events
@@ -19,9 +18,8 @@ Rails.application.routes.draw do
   #Projekt
   get 'create_project', to: 'projects#new'
   post "create_project", to: 'projects#create'
-  #get '/project', to: 'packets#show'
-  #get 'project/add_user', to: 'projects#add_user'
-  get 'add_user', to: 'projects#add_user'
+  get "addMember", to: 'projects#addMember'
+  post 'addMember', to: 'projects#addMember'
   get 'overview', to: 'projects#overview'
 
   #Packet
@@ -34,10 +32,6 @@ Rails.application.routes.draw do
   get 'show', to: 'contacts#show'
   get 'profile', to: 'contacts#profile'
 
-
-
-  #Paket-Erstellung
-  #Projekt-Erstellung
 
   #Kalender
   get '/pages/calendar', to: 'events#calendar'

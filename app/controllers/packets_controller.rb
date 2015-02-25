@@ -53,15 +53,16 @@ class PacketsController < ApplicationController
     # POST /packets
     # POST /packets.json
     def create
-      @packet = Packet.new(packet_params)
+      @packet = Packet.new(packet_params, :status => :task)
+
       respond_to do |format|
           if @packet.save
-            @user_packet = UserPacket.new(:users_id => current_user.id, :packets_id => @packet.id, :status => 0)
+            @user_packet = UserPacket.new(:users_id => current_user.id, :packets_id => @packet.id)
             if @user_packet.save
               if params[:commit] == 'Paket erstellen'
-                format.html {redirect_to :controller => 'packets', :action => 'create', :id => @packet.projects_id, :flash => { :success => "Message" }}
-              elsif  params[:commit] == 'Fertig'
-                format.html { redirect_to :controller => 'packets', :action => 'dashboard', :id => @packet.projects_id, :flash => { :success => "Message" }}
+                format.html {redirect_to :controller => 'packets', :action => 'create', :id => @packet.projects_id, :flash => { :success => "Packet_created" }}
+              elsif  params[:commit] == 'Weiter'
+                format.html { redirect_to :controller => 'packets', :action => 'dashboard', :id => @packet.projects_id, :flash => { :success => "ended_packet_creation" }}
               end
             format.json { render :show, status: :created, location: @packet }
             end
