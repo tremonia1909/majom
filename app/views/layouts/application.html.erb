@@ -33,7 +33,7 @@
                     </li>
                   <li class="active">
 
-                    <%=link_to :controller => 'contacts', :action => 'show' do%> <i class="fa fa-star"><%= current_user.first_name %> <%= current_user.last_name%></i><span class="nav-label"></span> <%end%>
+                    <%=link_to contacts_url :controller => 'contacts', :action => 'show' do%> <i class="fa fa-star"><%= current_user.first_name %> <%= current_user.last_name%></i><span class="nav-label"></span> <%end%>
 
                   </li>
                     <li>
