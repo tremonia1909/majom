@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -14,3 +15,9 @@
  *= require_self
  *= require_tree .
  *= require fullcalendar
+=======
+*= require twitter/bootstrap
+*= require_self
+*= require_tree .
+*= require fullcalendar
+>>>>>>> 5338c093a47bd70d10a43a30431a5e2f4bdd32d0
