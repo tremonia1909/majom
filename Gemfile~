@@ -4,7 +4,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :development,:test do
+  gem 'sqlite3'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -32,6 +34,8 @@ gem 'devise'
 
 #2/5 Rollen-Verwaltung
 gem 'rolify'
+gem 'cancan'
+
 
 #3/5 Page Routing
 gem 'high_voltage'
@@ -41,9 +45,7 @@ gem "bootstrap-sass-rails", "~> 2.2.2.0"
 gem 'less-rails'
 gem 'devise-bootstrap-views'
 gem 'therubyracer',  platforms: :ruby
-
-#4/5 Routing Static Pages
-gem 'high_voltage'
+gem 'font-awesome-rails', '4.3.0.0'
 
 #5/5 Testing
 group :development, :test do
@@ -53,6 +55,10 @@ group :development, :test do
   gem 'faker'
   gem 'capybara'
 end
+# 6/6 Calendar
+  gem 'fullcalendar-rails'
+  gem 'momentjs-rails'
+  gem 'responders'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -70,5 +76,5 @@ end
 #Heroku
 group :production do
  gem 'pg'
-gem 'rails_12factor'
+ gem 'rails_12factor'
 end
