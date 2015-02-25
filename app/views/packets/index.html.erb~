@@ -1,0 +1,69 @@
+<div id="wrapper">
+  <div class="col-lg-10">
+    <h2 class= "pull-left"> Arbeitspaket anlegen</h2>
+  </div>
+
+  <div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row" >
+        <div class="ibox ">
+          <div class="ibox-title">
+                  Ein oder mehrere Arbeitspakete anlegen
+          </div>
+
+
+
+          <%= form_for(:packet, as: :packet, url: { action: 'create' }) do |f| %>
+              <div class="form-group"><%= f.text_field        :packet_name,             :placeholder => 'Paketname',:autofocus => true   ,:class=>'form-control'  %> </div>
+              <div class="form-group"><%= f.number_field   :expenses,  step: 0.01,         :placeholder => 'Kosten',  :class=>'form-control'  %> </div>
+              <div class="form-group"><%= f.date_field        :start_date,            :placeholder => 'Start'               ,:class=>'form-control'   %> </div>
+              <div class="form-group"><%= f.date_field        :deadline,             :placeholder => 'Deadline'              ,:class=>'form-control'   %> </div>
+              <div class="form-group"><%= f.text_field       :description,                 :placeholder => 'Beschreibung'         ,:class=>'form-control'   %> </div>
+              <%= f.hidden_field :projects_id, :value => params[:id] %>
+             <%= f.submit "Paket erstellen", :class=>'btn btn-outline btn-primary dim pull-right'%>
+              <%= f.submit 'Fertig', :class=>'btn btn-outline btn-primary dim pull-right'%>
+
+          <% end %>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          Projekt erstellen?
+        </h4>
+      </div>
+      <div class="modal-body">
+        Möchtest du ein Projekt erstellen?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"
+                data-dismiss="modal">Abbrechen
+        </button>
+        <a href ="add_user">
+          <button type="button" class="btn btn-primary" >
+            Projekt erstellen
+          </button>
+        </a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+<script>
+    $(document).ready(function(){
+        <!-- Enable portlets -->
+        WinMove();
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
+</script>
+
