@@ -1,7 +1,5 @@
-/*
- *= require twitter/bootstrap
- *= require font-awesome
- *= require_self
- *= require_tree .
- *= require fullcalendar
-*/
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "bootstrap";
+@import "fullcalendar";
