@@ -236,11 +236,7 @@ DEPENDENCIES
   devise-bootstrap-views
   factory_girl_rails
   faker
-<<<<<<< HEAD
-  font-awesome-rails (= 4.3.0.0)
-=======
   font-awesome-sass
->>>>>>> faea5f05c8495f07de7b8d36a6728a8a635ad206
   fullcalendar-rails
   guard-rspec
   high_voltage
