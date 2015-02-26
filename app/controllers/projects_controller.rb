@@ -20,25 +20,28 @@ class ProjectsController < ApplicationController
             (Select first_name, last_name, email, id from users) user
           JOIN
             (Select * from user_projects where projects_id = ?) project
-          on project.users_id = user.id;', params[:id].downcase])
-      if !params[:user].nil?
-        @newMembers = User.where(email: params[:user][:email]).take
-        @user_projects = UserProject.new(:users_id => @newMembers.id, :projects_id => params[:id], :users_roles => :member)
+          on project.users_id = user.id;', params[:id]])
+      respond_to do |format|
+        if params.has_key?(:user)
+          @newMembers = User.where(email: params[:user][:email].downcase! ).take
+          @user_projects = UserProject.new(:users_id => @newMembers.id, :projects_id => params[:id], :users_roles => :member)
 
-        respond_to do |format|
-          if @user_projects.save
-              if params[:commit] == 'Add'
-                format.html {
-                  redirect_to :controller => 'projects', :action => 'addMember', :id => params[:id], :flash =>  { :success => "added_user" } }
-              elsif params[:commit] == 'Weiter'
-                format.html {
-                 redirect_to :controller => 'packets', :action => 'new', :id => params[:id], :flash => { :failed => "user_adding_completed" }}
-              end
-            format.json { render :member, status: :created, location: @user_project }
-          else
-            format.html {redirect_to :controller => 'packets', :action => 'new', :id => params[:id], :flash => { :failed => "error_add_user" }}
-            format.json { render json: @project.errors, status: :unprocessable_entity }
-          end
+            if @user_projects.save
+                if params[:commit] == 'Add'
+                  format.html {
+                    redirect_to :controller => 'projects', :action => 'addMember', :id => params[:id], :flash =>  { :success => "added_user" } }
+                elsif params[:commit] == 'Weiter'
+                  format.html {
+                   redirect_to :controller => 'packets', :action => 'new', :id => params[:id], :flash => { :success=> "user_adding_completed" }}
+                end
+              format.json { render :member, status: :created, location: @user_project }
+            else
+              format.html {redirect_to :controller => 'packets', :action => 'new', :id => params[:id], :flash => { :failed => "error_add_user" }}
+              format.json { render json: @project.errors, status: :unprocessable_entity }
+            end
+        else
+          format.html {
+            redirect_to :controller => 'packets', :action => 'new', :id => params[:id], :flash => { :failed => "user_adding_completed" }}
         end
       end
     end

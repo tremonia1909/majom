@@ -25,7 +25,11 @@ Rails.application.routes.draw do
   #Packet
   get 'create_packet', to: 'packets#new'
   get 'dashboard', to: 'packets#dashboard'
-  post "/packets/new", to: 'packets#create'
+  #post "/packets/new", to: 'packets#create'
+  post 'create_packet', to: 'packets#create'
+  get '/change', to: 'packets#change'
+  post '/change', to: 'packets#change'
+  get "/packets", to:  'packets#new'
 
   #Kontakte
   get 'contacts', to: 'contacts#contacts'

@@ -10,8 +10,8 @@ class PacketsController < ApplicationController
 
     def dashboard
       @packets1 = Packet.find_by_sql(
-          ['Select id, packet_name, status  From
-              (Select id, projects_id, packet_name, status From packets Where projects_id = ? AND status =0) packet
+          ['Select id, packet_name, status, deadline, start_date, expenses, description From
+              (Select id, packet_name, status, deadline, start_date, expenses, description From packets Where projects_id = ? AND status =0) packet
             join
               (Select users_id, packets_id, users_roles FROM user_packets Where (users_id = ? OR users_roles is null)) user
             on user.packets_id = packet.id;', params[:id], current_user.id ])
@@ -47,21 +47,22 @@ class PacketsController < ApplicationController
     end
 
     # GET /packets/1/edit
-    def edit
+    def change
+      @packet = Packet.all
     end
 
     # POST /packets
     # POST /packets.json
     def create
-      @packet = Packet.new(packet_params, :status => :task)
-
+      @packet = Packet.new(packet_params)
+      @packet.status= :task
       respond_to do |format|
           if @packet.save
             @user_packet = UserPacket.new(:users_id => current_user.id, :packets_id => @packet.id)
             if @user_packet.save
               if params[:commit] == 'Paket erstellen'
-                format.html {redirect_to :controller => 'packets', :action => 'create', :id => @packet.projects_id, :flash => { :success => "Packet_created" }}
-              elsif  params[:commit] == 'Weiter'
+                format.html {redirect_to :controller => 'packets', :action => 'new', :id => @packet.projects_id, :flash => { :success => "Packet_created" }}
+              else  params[:commit] == 'Weiter'
                 format.html { redirect_to :controller => 'packets', :action => 'dashboard', :id => @packet.projects_id, :flash => { :success => "ended_packet_creation" }}
               end
             format.json { render :show, status: :created, location: @packet }
