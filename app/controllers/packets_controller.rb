@@ -16,20 +16,21 @@ class PacketsController < ApplicationController
               (Select users_id, packets_id, users_roles FROM user_packets Where (users_id = ? OR users_roles is null))as  u
             on u.packets_id = packet.id;', params[:id], current_user.id ])
       @packets2 = Packet.find_by_sql(
-          ['Select id, packet_name, status  From
-              (Select id, projects_id, packet_name, status From packets Where projects_id = ? AND status =1) as packet
+
+          ['Select id, packet_name, status, deadline, start_date, expenses, description From
+              (Select id, packet_name, status, deadline, start_date, expenses, description From packets Where projects_id = ? AND status =1)as  packet
             join
               (Select users_id, packets_id, users_roles FROM user_packets Where (users_id = ? OR users_roles is null))as u
             on u.packets_id = packet.id;', params[:id], current_user.id ])
       @packets3 = Packet.find_by_sql(
-          ['Select id, packet_name, status  From
-              (Select id, projects_id, packet_name, status From packets Where projects_id = ? AND status =2)as  packet
+          ['Select id, packet_name, status, deadline, start_date, expenses, description From
+              (Select id, packet_name, status, deadline, start_date, expenses, description From packets Where projects_id = ? AND status =2) as packet
             join
               (Select users_id, packets_id, users_roles FROM user_packets Where (users_id = ? OR users_roles is null)) as u
             on u.packets_id = packet.id;', params[:id], current_user.id ])
       @packets4 = Packet.find_by_sql(
-          ['Select id, packet_name, status  From
-              (Select id, projects_id, packet_name, status From packets Where projects_id = ? AND status =3)as  packet
+          ['Select id, packet_name, status, deadline, start_date, expenses, description From
+              (Select id, packet_name, status, deadline, start_date, expenses, description From packets Where projects_id = ? AND status =3) as packet
             join
               (Select users_id, packets_id, users_roles FROM user_packets Where (users_id = ? OR users_roles is null))as u
             on u.packets_id = packet.id;', params[:id], current_user.id ])
@@ -76,14 +77,59 @@ class PacketsController < ApplicationController
 
     # PATCH/PUT /packets/1
     # PATCH/PUT /packets/1.json
+
     def update
-      respond_to do |format|
-        if @packet.update(packet_params)
-          format.html { redirect_to @packet, notice: 'Packet was successfully updated.' }
-          format.json { render :show, status: :ok, location: @packet }
-        else
-          format.html { render :edit }
-          format.json { render json: @packet.errors, status: :unprocessable_entity }
+      @packets = Packet.find(params[:packet][:packets_id])
+      if params[:commit] =='Aufgabe bearbeiten'
+        @packets.packet_name= params[:packet][:packet_name]
+        @packets.start_date = params[:packet][:start_date]
+        @packets.deadline = params[:packet][:deadline]
+        @packets.description = params[:packet][:description]
+        @packets.expenses = params[:packet][:expenses]
+        respond_to do |format|
+          if @packets.save
+            format.html { redirect_to :controller => 'packets', :action => 'dashboard', :id => @packet.projects_id, :flash => { :success => "packet_updated" }}
+            format.json { render :show, status: :ok, location: @packet }
+          else
+            format.html { render :edit }
+            format.json { render json: @packet.errors, status: :unprocessable_entity }
+          end
+        end
+      elsif params[:commit] == "Aufgabe annehmen"
+        @user_packets = UserPacket.where(packets_id: params[:packet][:packets_id])
+        respond_to do |format|
+          @packets.status = :working
+          @user_packets.users_id = current_user.id
+          if @packets.save && @user_packets.save
+              format.html { redirect_to :controller => 'packets', :action => 'dashboard', :id => @packet.projects_id, :flash => { :success => "task_accepted" }}
+              format.json { render :show, status: :ok, location: @packet }
+            else
+              format.html { render :edit }
+              format.json { render json: @packet.errors, status: :unprocessable_entity }
+            end
+        end
+      elsif params[:commit] ==  "Aufgabe abschließen"
+        @packets.status = :completed
+        respond_to do |format|
+          if @packets.save
+            format.html { redirect_to :controller => 'packets', :action => 'dashboard', :id => @packet.projects_id, :flash => { :success => "task_completed" }}
+            format.json { render :show, status: :ok, location: @packet }
+          else
+            format.html { render :edit }
+            format.json { render json: @packet.errors, status: :unprocessable_entity }
+          end
+        end
+
+      elsif params[:commit] ==  "Fehler melden"
+        @packets.status = :problem
+        respond_to do |format|
+          if @packets.save
+            format.html { redirect_to new_comment_url :controller => 'comments', :action => 'new', :id => @packet.id, :flash => { :success => "problem_added" }}
+            format.json { render :show, status: :ok, location: @packet }
+          else
+            format.html { render :edit }
+            format.json { render json: @packet.errors, status: :unprocessable_entity }
+          end
         end
       end
     end
@@ -101,7 +147,7 @@ class PacketsController < ApplicationController
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_packet
-      @packet = Packet.find(params[:packet])
+      @packet = Packet.find(params[:packet][:packets_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

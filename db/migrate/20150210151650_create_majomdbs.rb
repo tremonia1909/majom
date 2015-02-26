@@ -49,6 +49,5 @@ class CreateMajomdbs < ActiveRecord::Migration
 
     end
 
-
   end
 end

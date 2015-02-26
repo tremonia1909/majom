@@ -1,0 +1,41 @@
+<div id="wrapper">
+  <div class="col-lg-10">
+    <h2 class= "pull-left"> Kommentare</h2>
+  </div>
+
+  <div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row" >
+      <div class="col-xs-12 col-sm-12 col-md-8 pull-center">
+        <div class="ibox float-e-margins" >
+          <div class="ibox-title">
+                  Kommentare
+          </div>
+            <% if !(@comments.nil?)%>
+              <%@comments.each do |comment| %>
+              <div class="ibox-content" style='white-space: normal;word-wrap:break-word;'>
+                <div style="color:red;"><%=User.find(comment.users_id).first_name %> <%=User.find(comment.users_id).last_name %>:</div> <%=comment.comment%>
+              </div>
+              <%end%>
+          <%end%>
+
+          </div>
+        </div>
+      <div class="col-xs-12 col-sm-12 col-md-8 pull-center">
+        <div class="ibox float-e-margins" >
+            <div class="ibox-title">
+              Kommentar erstellen
+            </div>
+
+          <%= form_for(:comment, as: :comment, url: { action: 'create' }) do |f| %>
+              <div class="form-group"><%= f.text_field        :comment,             :placeholder => 'Kommentar',:autofocus => true   ,:class=>'form-control'  %> </div>
+             <%= f.hidden_field :packets_id, :value => params[:id] %>
+             <%= f.submit "Kommentar erstellen", :class=>'btn btn-outline btn-primary dim pull-right'%>
+              <%= f.submit 'Zurück', :class=>'btn btn-outline btn-primary dim pull-right'%>
+              <%= f.submit 'Fehler zurücksetzen', :class=>'btn btn-outline btn-primary dim pull-right'%>
+
+          <% end %>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>

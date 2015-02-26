@@ -1,5 +1,5 @@
 class Packet < ActiveRecord::Base
-  enum status: [:task, :working, :finished, :problem]
+  enum status: [:task, :working, :completed, :problem]
   belongs_to :project
   has_many :comments
   has_many :user_packets

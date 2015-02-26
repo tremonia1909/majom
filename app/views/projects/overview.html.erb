@@ -6,7 +6,7 @@
     <h2 class= "pull-left"> Projekt Übersicht</h2>
   </div>
 
-  <button class="btn btn-outline btn-info  dim" type="button" data-toggle="modal" data-target="#myModal">
+  <button class="btn btn-outline btn-info  dim" type="button" data-toggle="modal" data-target="#create_project">
     <i class="fa fa-paste"></i>
     Neues Projekt
   </button>
@@ -20,13 +20,13 @@
             <div class="widget lazur-bg p-xl" id = "widget">
 
               <h2>
-                <%=link_to dashboard_url(:id => project.id), :controller => 'packets', :action => 'dashboard' do%> #<%=project.pid %> <%=project.project_name %> <%end%>
+                <%=link_to dashboard_url(:id => project.pid), :controller => 'packets', :action => 'dashboard' do%> #<%=project.pid %> <%=project.project_name %> <%end%>
               </h2>
               <ul class="list-unstyled m-t-md">
                 <li>
                   <span class="fa fa-user m-r-xs"></span>
                   <label>Projektleitung:</label>
-                  Name
+                  <%= project.first_name %> <%= project.last_name%>
                 </li>
                 <li>
                   <span class="fa fa-calendar m-r-xs"></span>
@@ -50,53 +50,20 @@
 </div>
 
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="create_project" tabindex="-1" role="dialog" aria-labelledby="todo-label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close"
-                data-dismiss="modal" aria-hidden="true">
-          &times;
-        </button>
-        <h4 class="modal-title" id="myModalLabel">
-          Projekt erstellen?
-        </h4>
+        <h4 class="modal-title" id="todo-label">Projekt erstellen?</h4>
       </div>
-      <div class="modal-body">
-        Möchtest du ein Projekt erstellen?
+      <div class="modal-body"> Projekt erstellen?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default"
-                data-dismiss="modal">Abbrechen
-        </button>
-        <a href ="create_project">
-          <button type="button" class="btn btn-primary" >
-            Projekt erstellen
-          </button>
-        </a>
+        <%= link_to 'create_project', :controller => 'project', :action => 'new' do%>
+            <button type="button" class="btn btn-primary">Projekt erstellen</button>
+        <%end%>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Schließen</button>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal -->
+    </div>
+   </div>
 </div>
-
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#myModal").modal('show');
-    });
-</script>
-
-<script type="text/javascript">
-    var divs = document.getElementById("widget");
-    var test = divs.length;
-    var maxHeight = 0;
-    for(var i = 0; i < divs.length; i++){
-        if (divs[i].height > maxHeight){
-            maxHeight = divs[i].height;
-        }
-    }
-    for(var i = 0; i < divs.length; i++){
-        divs[i].height = maxHeight;
-    }
-</script>

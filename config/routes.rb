@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   #devise_for :users
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  resources :projects, :packets
+  resources :projects, :packets, :comments, :contacts
   resources :project, :packet, :comment,  :user, :user_packet, :user_project,:userpacket, :userproject, :role
   resources :home
  # resources :pages
@@ -19,24 +19,25 @@ Rails.application.routes.draw do
   #Projekt
   get 'create_project', to: 'projects#new'
   post "create_project", to: 'projects#create'
-  get "addMember", to: 'projects#addMember'
+  get "addMember", to: 'projects#showMember'
   post 'addMember', to: 'projects#addMember'
   get 'overview', to: 'projects#overview'
 
   #Packet
   get 'create_packet', to: 'packets#new'
   get 'dashboard', to: 'packets#dashboard'
-  #post "/packets/new", to: 'packets#create'
   post 'create_packet', to: 'packets#create'
-  get '/change', to: 'packets#change'
-  post '/change', to: 'packets#change'
   get "/packets", to:  'packets#new'
+  post 'dashboard', to: 'packets#update'
 
   #Kontakte
   get 'contacts', to: 'contacts#contacts'
   get 'show', to: 'contacts#show'
   get 'profile', to: 'contacts#profile'
 
+  #Kommentare
+  get '/comments', to: 'comments#new'
+  post 'comments', to: 'comments#create'
 
   #Kalender
   get '/pages/calendar', to: 'events#calendar'
