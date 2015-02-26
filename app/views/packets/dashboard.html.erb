@@ -16,14 +16,14 @@
                     <div class="modal-header">
                       <h4 class="modal-title" id="todo-label">Aufgabenverwaltung - Paket <%=packet.id%></h4>
                     </div>
-                    <div class="modal-body"><%= form_for(:packet, as: :packet, url: { action: 'create' }) do |f| %>
-                          <div class="form-group"><%= f.text_field        :packet_name,             :value => packet.packet_name, :autofocus => true   ,:class=>'form-control'  %> </div>
-                          <div class="form-group"><%= f.number_field   :expenses,  step: 0.01,         :value => packet.expenses,  :class=>'form-control'  %> </div>
-                          <div class="form-group"><%= f.date_field        :start_date,            :value => packet.start_date              ,:class=>'form-control'   %> </div>
-                          <div class="form-group"><%= f.date_field        :deadline,             :value => packet.deadline            ,:class=>'form-control'   %> </div>
-                          <div class="form-group"><%= f.text_field       :description,                 :value => packet.description     ,:class=>'form-control'   %> </div>
+                    <div class="modal-body"><%= form_for(:packet, as: :packet, url: { action: 'update' }) do |f| %>
+                          <div class="form-group"><%= f.text_field        :packet_name,             :value => packet.packet_name, :placeholder => 'Paketname', :autofocus => true   ,:class=>'form-control'  %> </div>
+                          <div class="form-group"><%= f.number_field   :expenses,  step: 0.01,         :value => packet.expenses, :placeholder => 'Kosten', :class=>'form-control'  %> </div>
+                          <div class="form-group"><%= f.date_field        :start_date,            :value => packet.start_date , :placeholder => 'Start'          ,:class=>'form-control'   %> </div>
+                          <div class="form-group"><%= f.date_field        :deadline,             :value => packet.deadline, :placeholder => 'Deadline'            ,:class=>'form-control'   %> </div>
+                          <div class="form-group"><%= f.text_field       :description,                 :value => packet.description , :placeholder => 'Beschreibung'    ,:class=>'form-control'   %> </div>
                           <%= f.hidden_field :projects_id, :value => params[:id] %>
-                          <%= f.hidden_field :projects_id, :value => packet.id %>
+                          <%= f.hidden_field :packets_id, :value => packet.id %>
                           </div>
                           <div class="modal-footer">
                             <%= f.submit  'Aufgabe bearbeiten', :class=>'btn btn-primary dim'%>
@@ -58,22 +58,21 @@
                     <div class="modal-header">
                       <h4 class="modal-title" id="todo-label">Aufgabenverwaltung - Paket <%=packet.id%></h4>
                     </div>
-                    <div class="modal-body"><%= form_for(:packet, as: :packet, url: { action: 'create' }) do |f| %>
-                          <div class="form-group"><%= f.text_field        :packet_name,             :value => packet.packet_name, :autofocus => true   ,:class=>'form-control'  %> </div>
-                          <div class="form-group"><%= f.number_field   :expenses,  step: 0.01,         :value => packet.expenses,  :class=>'form-control'  %> </div>
-                          <div class="form-group"><%= f.date_field        :start_date,            :value => packet.start_date              ,:class=>'form-control'   %> </div>
-                          <div class="form-group"><%= f.date_field        :deadline,             :value => packet.deadline            ,:class=>'form-control'   %> </div>
-                          <div class="form-group"><%= f.text_field       :description,                 :value => packet.description     ,:class=>'form-control'   %> </div>
-                          <div class="form-group"><%= f.text_field       :comment,                 :placeholder => 'Kommentar'     ,:class=>'form-control'   %> </div>
+                    <div class="modal-body"><%= form_for(:packet, as: :packet, url: { action: 'update' }) do |f| %>
+                          <div class="form-group"><%= f.text_field        :packet_name,             :value => packet.packet_name, :placeholder => 'Paketname', :autofocus => true   ,:class=>'form-control'  %> </div>
+                          <div class="form-group"><%= f.number_field   :expenses,  step: 0.01,         :value => packet.expenses, :placeholder => 'Kosten', :class=>'form-control'  %> </div>
+                          <div class="form-group"><%= f.date_field        :start_date,            :value => packet.start_date , :placeholder => 'Start'          ,:class=>'form-control'   %> </div>
+                          <div class="form-group"><%= f.date_field        :deadline,             :value => packet.deadline, :placeholder => 'Deadline'            ,:class=>'form-control'   %> </div>
+                          <div class="form-group"><%= f.text_field       :description,                 :value => packet.description , :placeholder => 'Beschreibung'    ,:class=>'form-control'   %> </div>
                           <%= f.hidden_field :projects_id, :value => params[:id] %>
-                          <%= f.hidden_field :projects_id, :value => packet.id %>
-                          </div>
-                          <div class="modal-footer">
-                            <%= f.submit  'Aufgabe bearbeiten', :class=>'btn btn-primary dim'%>
-                            <%= f.submit "Aufgabe abschließen", :class => 'btn btn-primary dim'%>
-                            <%= f.submit "Fehler melden", :class => 'btn btn-primary dim'%>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Schließen</button>
-                          </div>
+                          <%= f.hidden_field :packets_id, :value => packet.id %>
+                    </div>
+                    <div class="modal-footer">
+                      <%= f.submit  'Aufgabe bearbeiten', :class=>'btn btn-primary dim'%>
+                      <%= f.submit "Aufgabe abschließen", :class => 'btn btn-primary dim'%>
+                      <%= f.submit "Fehler melden", :class => 'btn btn-primary dim'%>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Schließen</button>
+                    </div>
 
                       <% end %>
                       </div>
@@ -115,42 +114,18 @@
         </div>
         <div class="ibox-content">
             <% @packets4.each do |packet| %>
-            <button type="button" class="btn btn-outline btn-warning col-lg-12" style='white-space: normal;word-wrap:break-word;
-            'data-toggle="modal" data-target="#packet-<%=packet.id%>"><%=packet.packet_name %></button>
+              <%= link_to new_comment_url(:id => packet.id), :controller => 'comments', :action => 'new' do%>
+                  <button type="button" class="btn btn-outline btn-warning col-lg-12" style='white-space: normal;word-wrap:break-word;'><%=packet.packet_name %></button>
+              <%end%>
             <br>
             <br>
 
-
-              <div class="modal fade" id="packet-<%=packet.id%>" tabindex="-1" role="dialog" aria-labelledby="todo-label" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title" id="todo-label">Aufgabenverwaltung - Paket <%=packet.id%></h4>
-                    </div>
-                    <% @comment.each do |comment| %>
-                        <%=comment.comment%>
-                    <%end%>
-                    <div class="modal-body"><%= form_for(:packet, as: :packet, url: { action: 'create' }) do |f| %>
-                          <div class="form-group"><%= f.text_field       :comment,                 :placeholder => 'Kommentar'     ,:class=>'form-control'   %> </div>
-                          <%= f.hidden_field :projects_id, :value => params[:id] %>
-                          <%= f.hidden_field :projects_id, :value => packet.id %>
-                          </div>
-                          <div class="modal-footer">
-                            <%= f.submit "Aufgabe abschließen", :class => 'btn btn-primary dim'%>
-                            <%= f.submit "Status zurücksetzen", :class => 'btn btn-primary dim'%>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Schließen</button>
-                          </div>
-
-                      <% end %>
-                      </div>
-                </div>
-              </div>
+         </div>
 
 
             <%end%>
 
             <br>
-        </div>
     </div>
 </div>
 

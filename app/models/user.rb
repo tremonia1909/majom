@@ -15,5 +15,5 @@ class User < ActiveRecord::Base
   has_many :contacts, :class_name => 'contact', :foreign_key => 'contacts_id'
 
 
-  has_many :comment
+  has_many :comments
 end
