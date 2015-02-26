@@ -56,11 +56,26 @@ class ProjectsController < ApplicationController
               (Select users_id, projects_id FROM user_projects where users_id = ?) userPro
               on project.id = userPro.projects_id) p
             Join
-              (Select user.first_name, user.last_name, pm.projects_id FROM
-                (Select * FROM user_projects where users_roles = 0) pm
+              (
+              Select  first_name
+                    , last_name
+                    , pm.projects_id
+              FROM
+                (
+                  Select *
+                    FROM user_projects
+                    where users_roles = 0
+                ) pm
                 join
-                (Select id, first_name, last_name from users) user
-                on pm.users_id = user.id) pmName
+                (
+                Select  id
+                      , first_name
+                      , last_name
+                  from users
+                ) user
+                on pm.users_id = user.id
+              ) pmName
+
             on pmName.projects_id= p.projects_id
           Order by p.projects_id ASC;', current_user.id])
     end
