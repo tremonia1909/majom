@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :projects, :packets
   resources :project, :packet, :comment,  :user, :user_packet, :user_project,:userpacket, :userproject, :role
   resources :home
-  resources :pages
+ # resources :pages
 
   #Kalender-Events
   resources :events

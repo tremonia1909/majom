@@ -17,10 +17,13 @@
               <div class="form-group"><%= f.date_field        :start_date,            :placeholder => 'Start'               ,:class=>'form-control'   %> </div>
               <div class="form-group"><%= f.date_field        :deadline,             :placeholder => 'Deadline'              ,:class=>'form-control'   %> </div>
               <div class="form-group"><%= f.text_field       :description,                 :placeholder => 'Beschreibung'         ,:class=>'form-control'   %> </div>
+
               <%= f.submit "Projekt erstellen", :class=>'btn btn-outline btn-primary dim pull-right' %>
+
 
           <% end %>
 
+          <%= redirect_to "Kalender-Eintrag", :controller => "events", :action =>"create", event: {title:'TEST-PRO',description:'TEST',start_time:'01/02/2015',end_time:'01/02/2015'} %>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
