@@ -4,17 +4,25 @@
   </div>
 
   <div class="wrapper wrapper-content  animated fadeInRight">
-    <div class="row" >
-      <div class="ibox ">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
         <div class="ibox-title">
           Schritt für Schritt ein neues Projekt erstellen
         </div>
-                Projektmitglieder:</br>
+            <div class="col-lg-10">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title" align="center">
+                <h5>Projektmitglieder:</h5>
+              </div>
+              <div class="ibox-content">
 
                 <% @users.each do |user| %>
-                    <h2><%=user.first_name%> <%=user.last_name%> <%=user.email%></h2>
+                    <div class = "col-lg-10", style="font-weight:bold;"><%=user.first_name%> <%=user.last_name%></div> <%=user.email%>
                     </br>
                 <%end%>
+            </div>
+          </div>
+          </div>
                 <%= form_for(:user, as: :user, url: { action: 'addMember' }, html: {method: 'post'}) do |f| %>
                     <%= f.text_field(:email, :autofocus => true ) %>
                     <%= hidden_field_tag :id, params[:id] %>

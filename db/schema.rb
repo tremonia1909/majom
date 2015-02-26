@@ -41,8 +41,6 @@ ActiveRecord::Schema.define(version: 20150222162346) do
     t.integer  "status"
     t.string   "description"
     t.float    "expenses"
-    t.integer  "predecessor"
-    t.integer  "successor"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

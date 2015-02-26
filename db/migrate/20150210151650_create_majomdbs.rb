@@ -22,8 +22,6 @@ class CreateMajomdbs < ActiveRecord::Migration
       t.integer :status
       t.string  :description
       t.float   :expenses
-      t.integer :predecessor
-      t.integer :successor
       t.timestamps null: false
 
     end
