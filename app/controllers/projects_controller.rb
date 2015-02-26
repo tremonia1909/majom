@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
     # GET /projects/1.json
 
     def show
-
+    end
     def showMember
       @users = User.find_by_sql(['Select first_name, last_name, email FROM
             (Select first_name, last_name, email, id from users) as  u
@@ -196,6 +196,6 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:project_name, :budget, :start_date, :deadline, :description)
     end
-  end
+end
 
 
