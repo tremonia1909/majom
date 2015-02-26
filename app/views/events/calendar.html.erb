@@ -1,8 +1,12 @@
 <%= stylesheet_link_tag  "plugins/fullcalendar/fullcalendar.css",  "plugins/iCheck/custom.css" %>
-<%= javascript_include_tag   'jquery-ui.custom.min.js', "plugins/iCheck/icheck.min.js","plugins/fullcalendar/fullcalendar.min.js", 'data-turbolinks-track' => true %>
+<%= javascript_include_tag   "plugins/fullcalendar/fullcalendar.min.js",'jquery-ui.custom.min.js', "plugins/iCheck/icheck.min.js", 'data-turbolinks-track' => true %>
 
 <script>
-    $(document).ready(function() {
+    $(document).on('ready page:load', function(){
+        // Your stuff
+
+
+
 
         $('.i-checks').iCheck({
             checkboxClass: 'icheckbox_square-green',
@@ -59,6 +63,7 @@
 
 
     });
+
 
 </script>
 
