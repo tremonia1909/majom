@@ -16,11 +16,25 @@ class ProjectsController < ApplicationController
 
 
     def addMember
-      @users = User.find_by_sql(['Select first_name, last_name, email FROM
-            (Select first_name, last_name, email, id from users) user
-          JOIN
-            (Select * from user_projects where projects_id = ?) project
-          on project.users_id = user.id;', params[:id]])
+      @users = User.find_by_sql(['
+            Select  u.first_name
+                  , u.last_name
+                  , u.email
+            FROM
+               (
+                  Select first_name
+                        , last_name
+                        , email
+                        , id
+                    from users
+               ) as u
+            JOIN
+              (
+                Select *
+                  from user_projects
+                  where projects_id = ?
+              ) as project
+            on project.users_id = u.id;', params[:id]])
       respond_to do |format|
         if params.has_key?(:user)
           @newMembers = User.where(email: params[:user][:email].downcase! ).take
