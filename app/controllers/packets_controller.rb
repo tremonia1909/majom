@@ -14,25 +14,25 @@ class PacketsController < ApplicationController
               (Select id, packet_name, status, deadline, start_date, expenses, description From packets Where projects_id = ? AND status =0) as packet
             join
               (Select users_id, packets_id, users_roles FROM user_packets Where (users_id = ? OR users_roles is null))as  u
-            on user.packets_id = packet.id;', params[:id], current_user.id ])
+            on u.packets_id = packet.id;', params[:id], current_user.id ])
       @packets2 = Packet.find_by_sql(
           ['Select id, packet_name, status  From
               (Select id, projects_id, packet_name, status From packets Where projects_id = ? AND status =1) as packet
             join
               (Select users_id, packets_id, users_roles FROM user_packets Where (users_id = ? OR users_roles is null))as u
-            on user.packets_id = packet.id;', params[:id], current_user.id ])
+            on u.packets_id = packet.id;', params[:id], current_user.id ])
       @packets3 = Packet.find_by_sql(
           ['Select id, packet_name, status  From
               (Select id, projects_id, packet_name, status From packets Where projects_id = ? AND status =2)as  packet
             join
               (Select users_id, packets_id, users_roles FROM user_packets Where (users_id = ? OR users_roles is null)) as u
-            on user.packets_id = packet.id;', params[:id], current_user.id ])
+            on u.packets_id = packet.id;', params[:id], current_user.id ])
       @packets4 = Packet.find_by_sql(
           ['Select id, packet_name, status  From
               (Select id, projects_id, packet_name, status From packets Where projects_id = ? AND status =3)as  packet
             join
               (Select users_id, packets_id, users_roles FROM user_packets Where (users_id = ? OR users_roles is null))as u
-            on user.packets_id = packet.id;', params[:id], current_user.id ])
+            on u.packets_id = packet.id;', params[:id], current_user.id ])
 
     end
 
