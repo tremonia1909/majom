@@ -88,7 +88,9 @@ class ProjectsController < ApplicationController
                     , pm.projects_id
               FROM
                 (
-                 Select *
+                 Select users_id
+                      , projects_id
+                      , users_roles
                    FROM user_projects
                   where users_roles = 0
                 ) as pm
