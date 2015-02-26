@@ -83,8 +83,8 @@ class ProjectsController < ApplicationController
             ) as p
             Join
              (
-              Select  first_name
-                    , last_name
+              Select  userTest.first_name
+                    , userTest.last_name
                     , pm.projects_id
               FROM
                 (
@@ -100,8 +100,8 @@ class ProjectsController < ApplicationController
                        , first_name
                        , last_name
                    from users
-                ) as user
-                on pm.users_id = user.id
+                ) as userTest
+              on pm.users_id = userTest.id
              ) as pmName
             on pmName.projects_id= p.projects_id
           Order by p.projects_id ASC;', current_user.id])
