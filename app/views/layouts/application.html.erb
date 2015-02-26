@@ -43,15 +43,7 @@
 
                         </ul>
                     </li>
-                    <li>
-                        <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning pull-right">16/24</span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="mailbox.html">Inbox</a></li>
-                            <li><a href="mail_detail.html">Email view</a></li>
-                            <li><a href="mail_compose.html">Compose email</a></li>
-                            <li><a href="email_template.html">Email templates</a></li>
-                        </ul>
-                    </li>
+
                     <li>
                         <a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Termine </span></a>
 
@@ -62,6 +54,16 @@
 
                       </ul>
                     </li>
+                  <li>
+                    <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Dokumentation </span></a>
+                    <ul class="nav nav-second-level">
+                      <li><%=link_to 'Datenbank-Model', 'uml'%></li>
+                      <li><%=link_to 'Übersicht MVC' , 'mvc' %></li>
+                      <li><%=link_to 'Anwendungsfall','use_case' %></li>
+                      <li><%=link_to 'Testfälle', '#' %></li>
+                      <li><%=link_to 'Konzeption', 'mindmap' %></li>
+                    </ul>
+                  </li>
 
                 </ul>
             </div>
