@@ -17,11 +17,46 @@
               <div class="form-group"><%= f.date_field        :start_date,            :placeholder => 'Start'               ,:class=>'form-control'   %> </div>
               <div class="form-group"><%= f.date_field        :deadline,             :placeholder => 'Deadline'              ,:class=>'form-control'   %> </div>
               <div class="form-group"><%= f.text_field       :description,                 :placeholder => 'Beschreibung'         ,:class=>'form-control'   %> </div>
+
               <%= f.submit "Projekt erstellen", :class=>'btn btn-outline btn-primary dim pull-right' %>
+
 
           <% end %>
 
+<<<<<<< HEAD
          </div>
     </div>
   </div>
+=======
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          Projekt erstellen?
+        </h4>
+      </div>
+      <div class="modal-body">
+        Möchtest du ein Projekt erstellen?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"
+                data-dismiss="modal">Abbrechen
+        </button>
+        <a href ="add_user">
+          <button type="button" class="btn btn-primary" >
+            Projekt erstellen
+          </button>
+        </a
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+>>>>>>> 67dd1b67c4b0cb31577f28decf24047315eaf57d
 </div>

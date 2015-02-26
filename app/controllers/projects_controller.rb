@@ -51,18 +51,58 @@ class ProjectsController < ApplicationController
     def overview
 
       @projects = Project.find_by_sql(
-          ['Select p.id as pid, project_name, description, deadline, first_name, last_name FROM
-            (Select project.id, project.project_name, project.description, project.deadline, userPro.users_id, userPro.projects_id FROM
-              (Select id, project_name, description, deadline FROM projects) project
-              JOIN
-              (Select users_id, projects_id FROM user_projects where users_id = ?) userPro
-              on project.id = userPro.projects_id) p
+          ['Select  p.id as pid
+                  , project_name
+                  , description
+                  , deadline
+                  , first_name
+                  , last_name
+            FROM
+            (
+                Select
+                      project.id
+                    , project.project_name
+                    , project.description
+                    , project.deadline
+                    , userPro.users_id
+                    , userPro.projects_id
+                FROM
+                (
+                  Select  id
+                      , project_name
+                      , description
+                      , deadline
+                  FROM projects
+                ) as  project
+                JOIN
+                (
+                  Select   users_id
+                        , projects_id
+                  FROM user_projects
+                  where users_id = ?
+                ) as userPro
+                on project.id = userPro.projects_id
+            ) as p
             Join
-              (Select user.first_name, user.last_name, pm.projects_id FROM
-                (Select * FROM user_projects where users_roles = 0) pm
-                join
-                (Select id, first_name, last_name from users) user
-                on pm.users_id = user.id) pmName
+             (
+              Select  first_name
+                    , last_name
+                    , pm.projects_id
+              FROM
+                (
+                 Select *
+                   FROM user_projects
+                  where users_roles = 0
+                ) as pm
+              join
+                (
+                 Select  id
+                       , first_name
+                       , last_name
+                   from users
+                ) as user
+                on pm.users_id = user.id
+             ) as pmName
             on pmName.projects_id= p.projects_id
           Order by p.projects_id ASC;', current_user.id])
     end
