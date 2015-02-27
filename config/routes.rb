@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   #Kalender
   get '/pages/calendar', to: 'events#calendar'
   get 'calendar' ,to: 'events#calendar'
+
   #Termin-Übersicht
   get 'pages/events' ,to: 'events#index'
   get 'events', to: 'events#index'

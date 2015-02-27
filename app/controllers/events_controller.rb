@@ -4,8 +4,40 @@ class EventsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @events = Event.all
-    respond_with(@events)
+    @events = Event.find_by_sql(
+        ['
+        select id,title,description,start_time,end_time
+          FROM
+            (
+              SELECT
+                id,
+                project_name AS title,
+                description  AS description,
+                start_date   AS start_time,
+                deadline     AS end_time
+              FROM projects p5
+              UNION
+              SELECT
+                p1.id,
+                p1.packet_name  AS title,
+                p2.project_name AS description,
+                p1.start_date   AS start_time,
+                p1.deadline     AS end_time
+              FROM packets AS p1
+                JOIN projects AS p2
+                  ON p1.projects_id = p2.id
+                join user_projects as p3
+                  on p2.id=p3.projects_id
+                 where p3.users_id=?
+              UNION
+              SELECT
+                id,
+                title,
+                description,
+                start_time,
+                end_time
+              FROM events
+            );', current_user.id])
   end
 
   def show
@@ -13,8 +45,35 @@ class EventsController < ApplicationController
   end
 
   def calendar
-    @events = Event.all
-    respond_with(@events)
+    @events = Event.find_by_sql(
+        ['
+            select title,description,start_time,end_time
+            FROM
+              (
+                SELECT
+                  project_name AS title,
+                  description  AS description,
+                  start_date   AS start_time,
+                  deadline     AS end_time
+                FROM projects
+              UNION
+
+                SELECT
+                  p1.packet_name  AS title,
+                  p2.project_name AS description,
+                  p1.start_date   AS start_time,
+                  p1.deadline     AS end_time
+                FROM packets as p1
+                join projects as p2
+                  on p1.projects_id = p2.id
+              UNION
+                SELECT
+                  title,
+                  description,
+                  start_time,
+                  end_time
+                FROM events
+              );', current_user.id])
   end
 
   def new
