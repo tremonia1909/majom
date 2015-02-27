@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+
+  before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   respond_to :html, :json

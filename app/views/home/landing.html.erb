@@ -11,20 +11,17 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="page-scroll" href="#page-top">Home</a></li>
-                        <li><a class="page-scroll" href="#team">Team</a></li>
-                        <li> <%= link_to "LOGIN", new_user_session_path%></a></li>
-                        <li><a class="page-scroll" href="impressum">Impressum</a></li>
+                      <li><a class="page-scroll" href="#team">Team</a></li>
+                      <li> <%= link_to "Login", new_user_session_path%></a></li>
+                      <li>  <%= link_to "Registrieren", new_user_registration_path%></li>
+                        <li><%= link_to "Registrieren", 'impressum'%></li>
                     </ul>
                 </div>
             </div>
         </nav>
 </div>
 <div id="inSlider" class="carousel slide carousel-fade" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
-        <li data-target="#inSlider" data-slide-to="1"></li>
-    </ol>
+
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <div class="container">
@@ -35,37 +32,15 @@
                         -Majom</h1>
                     <p>Einfaches Projektmanagement</p>
                     <p>
-                        <a class="btn btn-lg btn-primary" href="#" role="button">Erfahre mehr</a>
-                        <a class="caption-link" href="#" role="button">Majom</a>
+                        <a class="btn btn-lg btn-primary" href="/users/sign_up" role="button">Jetzt Registrieren</a>
                     </p>
                 </div>
-                <div class="carousel-image wow zoomIn">
-                </div>
             </div>
             <!-- Set background for slide in css -->
-            <div class="header-back one" style="align:center;"><%= image_tag("majom_weiss.png", :class =>"pull-center" ) %></div>
+            <div class="header-back one" style="align:center;"><%= image_tag("majom_weiss.png", size: "512x256", class:"pull-right") %></div>
 
         </div>
-        <div class="item">
-            <div class="container">
-                <div class="carousel-caption blank">
-                    <h1>Hier entsteht<br/> Majom</h1>
-                    <p>Einfaches Projektmanagement für jeden.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                </div>
-            </div>
-            <!-- Set background for slide in css -->
-            <div class="header-back two"></div>
-        </div>
     </div>
-    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
 </div>
 <section id="team" class="gray-section team">
     <div class="container">

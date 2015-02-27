@@ -16,4 +16,11 @@
 //= require twitter/bootstrap
 //= require moment
 //= require fullcalendar
+//= require plugins/metisMenu/jquery.metisMenu.js
+//= require plugins/pace/pace.min.js
+//= require plugins/peity/jquery.peity.min.js
+//= require plugins/slimscroll/jquery.slimscroll.min.js
+//= require inspinia.js
 //= require turbolinks
+
+

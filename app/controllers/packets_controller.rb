@@ -1,5 +1,6 @@
 class PacketsController < ApplicationController
 
+    before_action :authenticate_user!
     before_action :set_packet, only: [:show, :edit, :update, :destroy]
 
     # GET /packets
@@ -96,10 +97,10 @@ class PacketsController < ApplicationController
           end
         end
       elsif params[:commit] == "Aufgabe annehmen"
-        @user_packets = UserPacket.where(packets_id: params[:packet][:packets_id])
+        @user_packets = UserPacket.where(:packets_id => params[:packet][:packets_id]).take
+        @packets.status = :working
+        @user_packets.users_id = current_user.id
         respond_to do |format|
-          @packets.status = :working
-          @user_packets.users_id = current_user.id
           if @packets.save && @user_packets.save
               format.html { redirect_to :controller => 'packets', :action => 'dashboard', :id => @packet.projects_id, :flash => { :success => "task_accepted" }}
               format.json { render :show, status: :ok, location: @packet }

@@ -20,7 +20,7 @@
             <div class="widget lazur-bg p-xl" id = "widget">
 
               <h2>
-                <%=link_to dashboard_url(:id => project.pid), :controller => 'packets', :action => 'dashboard' do%> #<%=project.pid %> <%=project.project_name %> <%end%>
+                <%=link_to dashboard_url(:id => project.pid), :controller => 'packets', :action => 'dashboard', method: :get do%> #<%=project.pid %> <%=project.project_name %> <%end%>
               </h2>
               <ul class="list-unstyled m-t-md">
                 <li>
