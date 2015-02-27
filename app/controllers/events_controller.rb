@@ -40,7 +40,7 @@ FROM
       start_time,
       end_time
     FROM events
-  )g', current_user.id,current_user.id])
+  )as g', current_user.id,current_user.id])
   end
 
   def show
