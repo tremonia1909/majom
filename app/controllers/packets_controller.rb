@@ -66,7 +66,7 @@ class PacketsController < ApplicationController
                 if params[:commit] == 'Paket erstellen'
                   format.html {redirect_to :controller => 'packets', :action => 'new', :id => @packet.projects_id, :flash => { :success => "Packet_created" }}
                 else  params[:commit] == 'Weiter'
-                  format.html { redirect_to :controller => 'packets', :action => 'dashboard', :id => @packet.projects_id, :flash => { :success => "ended_packet_creation" }}
+                  format.html { redirect_to :controller => 'packets', :action => 'dashboard', :id => @packet.projects_id, :flash => { :success => "packet_creation_completed" }}
                 end
               format.json { render :show, status: :created, location: @packet }
               end
