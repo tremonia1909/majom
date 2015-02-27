@@ -129,6 +129,16 @@ class PacketsController < ApplicationController
           else
             format.html { render :edit }
             format.json { render json: @packet.errors, status: :unprocessable_entity }
+            end
+        end
+      elsif params[:commit] ==  "Löschen"
+        respond_to do |format|
+          if Packet.destroy_all(:id => @packets.id)
+            format.html { redirect_to :controller => 'packets', :action => 'dashboard', :id => @packet.projects_id, :flash => { :success => "packet_deleted" }}
+            format.json { render :show, status: :ok, location: @packet }
+          else
+            format.html { render :edit }
+            format.json { render json: @packet.errors, status: :unprocessable_entity }
           end
         end
       end

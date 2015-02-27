@@ -39,9 +39,33 @@
                   <%=project.description %>
                 </li>
               </ul>
-
+              <button class="btn btn-default btn-outline pull-right" type="button" data-toggle="modal" data-target="#edit_project-<%=project.pid%>">Projekt bearbeiten</button>
             </div>
-        </div>
+          </div>
+          <div class="modal fade" id="edit_project-<%=project.pid%>" tabindex="-1" role="dialog" aria-labelledby="todo-label" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="todo-label">Aufgabenverwaltung - Projekt <%=project.pid%></h4>
+                </div>
+                <div class="modal-body"><%= form_for(:project, as: :project, url: { action: 'update' }) do |f| %>
+                      <div class="form-group"><%= f.text_field        :project_name,             :value => project.project_name, :placeholder => 'Paketname', :autofocus => true   ,:class=>'form-control'  %> </div>
+                      <div class="form-group"><%= f.number_field   :budget,  step: 0.01,         :value => project.budget, :placeholder => 'Kosten', :class=>'form-control'  %> </div>
+                      <div class="form-group"><%= f.date_field        :start_date,            :value => project.start_date , :placeholder => 'Start'          ,:class=>'form-control'   %> </div>
+                      <div class="form-group"><%= f.date_field        :deadline,             :value => project.deadline, :placeholder => 'Deadline'            ,:class=>'form-control'   %> </div>
+                      <div class="form-group"><%= f.text_field       :description,                 :value => project.description , :placeholder => 'Beschreibung'    ,:class=>'form-control'   %> </div>
+                      <%= f.hidden_field :projects_id, :value => project.pid %>
+                      </div>
+                      <div class="modal-footer">
+                        <%= f.submit  'Projekt bearbeiten', :class=>'btn btn-primary dim'%>
+                        <%= f.submit "Projekt löschen", :class => 'btn btn-primary dim'%>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Schließen</button>
+                      </div>
+
+                  <% end %>
+                  </div>
+            </div>
+          </div>
       <%end%>
       <%else%>
         <h1 class="logo-name">Aktuell keine Projekte</h1>

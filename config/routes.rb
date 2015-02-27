@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "addMember", to: 'projects#showMember'
   post 'addMember', to: 'projects#addMember'
   get 'overview', to: 'projects#overview'
+  post 'overview', to: 'projects#update'
 
   #Packet
   get 'create_packet', to: 'packets#new'
@@ -42,6 +43,7 @@ Rails.application.routes.draw do
   #Kalender
   get '/pages/calendar', to: 'events#calendar'
   get 'calendar' ,to: 'events#calendar'
+
   #Termin-Übersicht
   get 'pages/events' ,to: 'events#index'
   get 'events', to: 'events#index'

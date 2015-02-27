@@ -33,6 +33,10 @@ Rails.application.config.assets.precompile += %w( plugins/fullcalendar/fullcalen
 Rails.application.config.assets.precompile += %w( plugins/iCheck/custom.css )
 Rails.application.config.assets.precompile += %w( plugins/datapicker/datepicker3.css)
 
+
+Rails.application.config.assets.paths << "#{Rails.root}/app/assets/fonts"
+Rails.application.config.assets.precompile += %w( .svg .eot .woff .ttf )
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
