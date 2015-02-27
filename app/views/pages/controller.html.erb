@@ -1,0 +1,238 @@
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<p><a name="__DdeLink__121_1943051363"></a> <span><strong>Projects</strong></span></p>
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<p>Der projects-Controller besteht aus 3 Views</p>
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<ol>
+  <li>
+    <p>Der Overview</p>
+    <ol type="a">
+      <li>
+        <p>Dient der &Uuml;bersicht aller Projekte des Benutzers</p>
+      </li>
+      <li>
+        <p>Gibt Basisinformationen &uuml;ber das Projekt</p>
+      </li>
+      <li>
+        <p>L&auml;sst zu ein neues Projekt zu erstellen</p>
+      </li>
+    </ol></li>
+  <li>
+    <p>Projekterstellung (new)</p>
+    <ol type="a">
+      <li>
+        <p>Erstellt ein Projekt</p>
+      </li>
+      <li>
+        <p>Erstellender Benutzer wird als Projektleiter eingetragen</p>
+      </li>
+    </ol></li>
+  <li>
+    <p>Projektmittglieder hinzuf&uuml;gen (AddMember)</p>
+    <ol type="a">
+      <li>
+        <p>Am Projekt teilnehmende Benutzer werden mit der E-Mail Adresse hinzugef&uuml;gt</p>
+      </li>
+      <li>
+        <p>F&uuml;gt beliebig viele Mitglieder einem Projekt hinzu</p>
+      </li>
+      <li>
+        <p>Zeigt bereits teilnehmende Benutzer in einer &Uuml;bersicht an</p>
+      </li>
+    </ol></li>
+</ol>
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<p>Funktionalit&auml;ten:</p>
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<ol>
+  <li>
+    <p>Overview</p>
+    <ol type="a">
+      <li>
+        <p>Falls von Overiview mit entsprechendem Parameter (der Projekt ID) weitergeleitet wird, wird dieses direkt an den Packets-Controller und dem damit verbundenem Dashboard weitergegeben.</p>
+      </li>
+      <li>
+        <p>Neues Projekt erstellen bewirkt eine Weiterleitung zu new.</p>
+        <ol type="i">
+          <li>
+            <p>Der post-Befehl der new.html.erb erzeugt ein @projects und ein @users_projects Objekt und speichert sie</p>
+          </li>
+          <li>
+            <p>Danach wird zu addMember mit Projekt ID Parametrisierung weitergeleitet</p>
+          </li>
+        </ol></li>
+      <li>
+        <p>AddMember</p>
+        <ol type="i">
+          <li>
+            <p>Beim Aufbau der Seite werden alle User des Projekts angezeigt (Initial nur Projektleiter)</p>
+          </li>
+          <li>
+            <p>Durch Eingabe der E-Mail lassen sich weitere hinzuf&uuml;gen und werden sofort angezeigt</p>
+          </li>
+          <li>
+            <p>Durch Weiter gelangt man zum Packets-Controller</p>
+          </li>
+        </ol></li>
+    </ol></li>
+</ol>
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<p><span><strong>Packets</strong></span></p>
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<p>Der packets-Controller besteht aus 3 Views</p>
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<ol>
+  <li>
+    <p>Paketerstellung (new)</p>
+    <ol type="a">
+      <li>
+        <p>Erstellt beliebig viele Pakete</p>
+      </li>
+    </ol></li>
+  <li>
+    <p>Dashboard</p></li>
+    <ol type="a">
+      <li>
+        <p>Zeigt alle Pakete geordnet nach Status (Aufgabe, In Bearbeitung, Fertig, Problem) an</p>
+      </li>
+      <li>
+        <p>Es wird f&uuml;r jedes Paket ein Modal erzeugt</p>
+        <ol type="i">
+          <li>
+            <p>Modal beinhaltet Bearbeitung/Aktualisierung des pakets</p>
+          </li>
+          <li>
+            <p>Aufgabe annehmen/abschlie&szlig;en/Fehler melden</p>
+          </li>
+        </ol></li>
+      <li>
+        <p>Falls ein Paket im Fehler Container ist wird beim Klick auf dieses eine Seite mit Kommentaren zum Paket/Fehler aufgerufen</p>
+      </li>
+    </ol></li>
+</ol>
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<p><span style="text-decoration: underline;"><strong>Funktionalit&auml;ten</strong></span></p>
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<ol>
+  <li>
+    <p><span style="text-decoration: underline;">Paketerstellung</span></p>
+    <ol type="a">
+      <li>
+        <p>Die View &uuml;bergibt alle daten per Parameter</p>
+      </li>
+    </ol></li>
+</ol>
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<ol><ol type="a">
+  <li>
+    <p>Parameter werden in einem @packets Objekt gespeichert</p>
+  </li>
+  <li>
+    <p>Es wird ein @packets und ein @user_packets Objekt angelegt und gespeichert</p>
+  </li>
+  <li>
+    <p>Der user bleibt zun&auml;chst noch offen</p>
+  </li>
+  <li>
+    <p>Es wird unterschieden zwischen &bdquo;Fertig&ldquo; und reiner Paketerstellung</p>
+    <ol type="i">
+      <li>
+        <p>Fertig -&gt; Weiterleitung zum Dashboard mit Projekt ID Parametrisierung</p>
+      </li>
+      <li>
+        <p>Paketerstellung -&gt; Erneute M&ouml;glichkeit ein Paket zu erstellen</p>
+      </li>
+    </ol></li>
+</ol>
+  <li>
+    <p><span style="text-decoration: underline;">Dashboard</span></p>
+    <ol type="a">
+      <li>
+        <p>Anzeige</p>
+        <ol type="i">
+          <li>
+            <p>Es wird nach Projekt ID gefiltert und alle entsprechenden Pakete &uuml;bergeben</p>
+          </li>
+        </ol></li>
+      <li>
+        <p>Update</p>
+        <ol type="i">
+          <li>
+            <p>Unterscheidung: &Auml;nderung von Paket-Attributen und &Auml;nderung des Status</p>
+            <ol>
+              <li>
+                <p>&Auml;nderung Paket-Attribute.</p>
+                <ol type="a">
+                  <li>
+                    <p>Es werden alle Paket-Attribute mit den aktuellen aus dem Modal &uuml;berschrieben -&gt; Nicht der Status</p>
+                  </li>
+                </ol></li>
+              <li>
+                <p>&Auml;nderung Status</p>
+                <ol type="a">
+                  <li>
+                    <p>Es wird lediglich der Status &uuml;berschrieben</p>
+                  </li>
+                  <li>
+                    <p>Bei Fehlermeldung wird zum Comments-Controller weitergeleitet mit entsprechender Paket ID Parametrisierung</p>
+                  </li>
+                </ol></li>
+            </ol></li>
+        </ol></li>
+    </ol></li>
+</ol>
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<p><span><strong>Comments</strong></span></p>
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<p>Der Comments-Controller besteht aus einer View</p>
+<p><a name="__DdeLink__121_1943051363"></a></p>
+<ol>
+  <li>
+    <p><span style="text-decoration: underline;">View</span></p>
+    <ol type="a">
+      <li>
+        <p>Zeigt alle Kommentare an, die gemacht worden sind mit entsprechendem verfassendem User</p>
+      </li>
+      <li>
+        <p>Bietet die M&ouml;glichkeit neue Kommentare hinzuzuf&uuml;gen</p>
+      </li>
+      <li>
+        <p>Bietet die M&ouml;glichkeit den Status zur&uuml;ckzusetzen</p>
+      </li>
+      <li>
+        <p>Bietet die M&ouml;glichkeit mit entsprechender Projekt ID Parametrisierung zum Dashboard zur&uuml;ckzukehren</p>
+      </li>
+    </ol></li>
+  <li>
+    <p><span style="text-decoration: underline;">Funktionalit&auml;ten</span></p>
+    <ol type="a">
+      <li>
+        <p>Anzeige</p>
+        <ol type="i">
+          <li>
+            <p>Filtert alle Kommentare und die zugeh&ouml;rigen User zu der Paket ID und &uuml;bergibt sie</p>
+          </li>
+        </ol></li>
+      <li>
+        <p>Kommentarerstellung</p>
+        <ol type="i">
+          <li>
+            <p>Erzeugt einen neuen Kommentar und leitet weiter zur Anzeige der Kommentare</p>
+          </li>
+        </ol></li>
+      <li>
+        <p>Bei &bdquo;Zur&uuml;ck&ldquo; wird zur&uuml;ck zum Dashboard geleitet</p>
+      </li>
+      <li>
+        <p>Bei &bdquo;Status zur&uuml;cksetzen&ldquo; wird ein Update-Befehl durchgef&uuml;hrt</p>
+        <ol type="i">
+          <li>
+            <p>Paket-Status wird auf &bdquo;Task&ldquo; zur&uuml;ckgesetzt -&gt; Initialstatus</p>
+          </li>
+          <li>
+            <p>Alle Kommentare zu dem Paket werden entfernt</p>
+          </li>
+        </ol></li>
+    </ol></li>
+</ol>
+<p><a name="__DdeLink__121_1943051363"></a></p>
