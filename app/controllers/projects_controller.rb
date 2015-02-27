@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
 
-    before_action :set_project, only: [:show, :edit, :update, :destroy], except: [:overview, :addMember, :showMember]
+    before_action :set_project, only: [:show, :edit, :update, :destroy], except: [:overview, :addMember, :showMember, :update]
 
     # GET /projects
     # GET /projects.json
@@ -79,16 +79,20 @@ class ProjectsController < ApplicationController
           ['Select  p.id as pid
                   , project_name
                   , description
+                  , start_date
                   , deadline
                   , first_name
                   , last_name
+                  , budget
             FROM
             (
                 Select
                       project.id
                     , project.project_name
                     , project.description
+                    , project.start_date
                     , project.deadline
+                    , project.budget
                     , userPro.users_id
                     , userPro.projects_id
                 FROM
@@ -96,7 +100,9 @@ class ProjectsController < ApplicationController
                   Select  id
                       , project_name
                       , description
+                      , start_date
                       , deadline
+                      , budget
                   FROM projects
                 ) as  project
                 JOIN
@@ -165,13 +171,32 @@ class ProjectsController < ApplicationController
     # PATCH/PUT /projects/1
     # PATCH/PUT /projects/1.json
     def update
-      respond_to do |format|
-        if @project.update(project_params)
-          format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-          format.json { render :show, status: :ok, location: @project }
-        else
-          format.html { render :edit }
-          format.json { render json: @project.errors, status: :unprocessable_entity }
+      @projects = Project.find(params[:project][:projects_id])
+      if params[:commit] =='Projekt bearbeiten'
+        @projects.project_name= params[:project][:project_name]
+        @projects.start_date = params[:project][:start_date]
+        @projects.deadline = params[:project][:deadline]
+        @projects.description = params[:project][:description]
+        @projects.budget = params[:project][:budget]
+        respond_to do |format|
+          if @projects.save
+            format.html { redirect_to :controller => 'projects', :action => 'overview', :flash => { :success => "project_updated" }}
+            format.json { render :show, status: :ok, location: @packet }
+          else
+            format.html { render :edit }
+            format.json { render json: @packet.errors, status: :unprocessable_entity }
+          end
+        end
+      elsif params[:commit] == "Projekt löschen"
+
+        respond_to do |format|
+          if (Project.destroy_all(:id => params[:project][:projects_id])) && (Packet.destroy_all(:projects_id => params[:project][:projects_id]))
+            format.html { redirect_to :controller => 'projects', :action => 'overview', :flash => { :success => "project_deleted" }}
+            format.json { render :show, status: :ok, location: @packet }
+          else
+            format.html { render :edit }
+            format.json { render json: @packet.errors, status: :unprocessable_entity }
+          end
         end
       end
     end

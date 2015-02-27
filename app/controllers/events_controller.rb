@@ -41,6 +41,7 @@ FROM
       end_time
     FROM events
   )as g', current_user.id,current_user.id])
+    respond_with(@events)
   end
 
   def show
@@ -85,6 +86,8 @@ FROM
       end_time
     FROM events
   )as g', current_user.id,current_user.id])
+
+    respond_with(@events)
   end
 
   def new
