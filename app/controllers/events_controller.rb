@@ -42,7 +42,7 @@ FROM
       start_time,
       end_time
     FROM events
-  )as g', current_user.id,current_user.id])
+  )as g', current_user.id])
     respond_with(@events)
   end
 
@@ -87,7 +87,7 @@ FROM
       start_time,
       end_time
     FROM events
-  )as g', current_user.id,current_user.id])
+  )as g', current_user.id])
 
     respond_with(@events)
   end

@@ -23,9 +23,6 @@
             <td><%= event.description %></td>
             <td><%= event.start_time %></td>
             <td><%= event.end_time %></td>
-            <td><%= link_to ' ', event %></td>
-            <td><%= link_to ' ', edit_event_path(event) , class: "fa fa-sign-out" %></td>
-            <td><%= link_to ' ', event, method: :delete, data: { confirm: 'Are you sure?' },   class: "fa fa-eraser" %></td>
           </tr>
         <% end %>
         </tbody>

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   #Landing
   get '/landing', to: 'home#landing'
   get '/', to: 'home#landing'
+  get 'impressum', to: 'home#impressum'
 
   #Projekt
   get 'create_project', to: 'projects#new'

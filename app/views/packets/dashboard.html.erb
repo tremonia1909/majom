@@ -42,8 +42,8 @@
            <br>
         </div>
         <div class="ibox-content" >
-          <%= link_to 'create_packet', :controller => 'packet', :action => 'new' do%>
-            <button type="button" class="btn btn-primary btn-outline" data-dismiss="modal">Neues Paket</button>
+          <%= link_to new_packet_url(:id => params[:id]), :controller => 'packet', :action => 'new' do%>
+            <button type="button" class="btn btn-primary btn-outline">Neues Paket</button>
           <%end%>
         </div>
     </div>
