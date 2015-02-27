@@ -58,11 +58,6 @@ ActiveRecord::Schema.define(version: 20150222162346) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "user_mailers", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "user_packets", id: false, force: true do |t|
     t.integer "users_id"
     t.integer "packets_id"
